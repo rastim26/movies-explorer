@@ -1,0 +1,12 @@
+{
+  "name": "movies-explorer-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+
+  },
+  "keywords": [],
+  "author": "Rastim Safarov",
+  "license": "ISC"
+}
