@@ -22,3 +22,5 @@ const userSchema = new mongoose.Schema({
     maxlength: [30, 'Максимальная длина поля "name" - 30'],
   },
 });
+
+module.exports = mongoose.model('user', userSchema);
