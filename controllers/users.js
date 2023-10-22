@@ -1,3 +1,5 @@
+const NotFoundError = require('../errors/not-found-err');
+
 const User = require('../models/user');
 
 const getUserInfo = (req, res, next) => {
@@ -13,7 +15,7 @@ const updateUserInfo = (req, res, next) => {
     { name, about },
     { new: true, runValidators: true },
   )
-    // .orFail(new NotFoundError('Запрашиваемая запись не найдена'))
+    .orFail(new NotFoundError('Запрашиваемая запись не найдена'))
     .then((user) => res.status(200).send(user))
     .catch(next);
 };

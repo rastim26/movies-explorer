@@ -1,3 +1,5 @@
+const NotFoundError = require('../errors/not-found-err');
+
 const Movie = require('../models/movie');
 
 const getMovies = (req, res, next) => {
@@ -34,7 +36,7 @@ const deleteMovie = (req, res, next) => {
   const { movieId } = req.params;
 
   Movie.findById(movieId)
-    // .orFail(new NotFoundError('Запрашиваемая запись не найдена'))
+    .orFail(new NotFoundError('Запрашиваемая запись не найдена'))
     .then((movie) => {
       // if (userId !== movie.owner.toString()) throw new ForbiddenError('У вас недостаточно прав');
       Movie.deleteOne(movie)
