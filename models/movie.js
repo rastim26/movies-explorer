@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const validator = require('validator');
 const { ObjectId } = require('mongodb');
+const { urlPattern } = require('../middlewares/validation');
 
 const movieSchema = new mongoose.Schema({
   country: {
@@ -27,7 +28,7 @@ const movieSchema = new mongoose.Schema({
     type: String,
     required: [true, 'Поле "image" должно быть заполнено'],
     validate: {
-      validator: (v) => validator.isURL(v),
+      validator: (v) => urlPattern.test(v),
       message: 'Некорректная ссылка',
     },
   },
@@ -35,7 +36,7 @@ const movieSchema = new mongoose.Schema({
     type: String,
     required: [true, 'Поле "trailerLink" должно быть заполнено'],
     validate: {
-      validator: (v) => validator.isURL(v),
+      validator: (v) => urlPattern.test(v),
       message: 'Некорректная ссылка',
     },
   },
@@ -43,7 +44,7 @@ const movieSchema = new mongoose.Schema({
     type: String,
     required: [true, 'Поле "thumbnail" должно быть заполнено'],
     validate: {
-      validator: (v) => validator.isURL(v),
+      validator: (v) => urlPattern.test(v),
       message: 'Некорректная ссылка',
     },
   },
