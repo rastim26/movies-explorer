@@ -2,22 +2,20 @@ const { celebrate, Joi } = require('celebrate');
 
 const urlPattern = /^https?:\/\/w{0,3}\.?[\w-]+\.\w{1,3}[\w\-._~:/?#[\]@!$&'()*+,;=]*#?$/;
 
-// const validateSigninFields = celebrate({
-//   body: Joi.object().keys({
-//     email: Joi.string().required().email({ minDomainSegments: 2 }),
-//     password: Joi.string().required().min(4),
-//   }),
-// });
+const validateSigninFields = celebrate({
+  body: Joi.object().keys({
+    email: Joi.string().required().email(),
+    password: Joi.string().required(),
+  }),
+});
 
-// const validateSignupFields = celebrate({
-//   body: Joi.object().keys({
-//     name: Joi.string().min(2).max(30),
-//     about: Joi.string().min(2).max(30),
-//     avatar: Joi.string().pattern(urlPattern),
-//     email: Joi.string().required().email({ minDomainSegments: 2 }),
-//     password: Joi.string().required().min(4),
-//   }),
-// });
+const validateSignupFields = celebrate({
+  body: Joi.object().keys({
+    name: Joi.string().min(2).max(30).required(),
+    email: Joi.string().required().email(),
+    password: Joi.string().required().min(),
+  }),
+});
 
 const validateMovieFields = celebrate({
   body: Joi.object().keys({
@@ -58,8 +56,8 @@ const validateUserFields = celebrate({
 
 module.exports = {
   urlPattern,
-  // validateSigninFields,
-  // validateSignupFields,
+  validateSigninFields,
+  validateSignupFields,
   validateMovieFields,
   validateMoviedId,
   validateUserId,

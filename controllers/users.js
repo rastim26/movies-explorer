@@ -9,10 +9,10 @@ const getUserInfo = (req, res, next) => {
 };
 
 const updateUserInfo = (req, res, next) => {
-  const { name, about } = req.body;
+  const { name, email } = req.body;
   User.findByIdAndUpdate(
     req.user._id,
-    { name, about },
+    { name, email },
     { new: true, runValidators: true },
   )
     .orFail(new NotFoundError('Запрашиваемая запись не найдена'))
