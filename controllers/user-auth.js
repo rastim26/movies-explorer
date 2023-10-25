@@ -6,7 +6,7 @@ const AlreadyExistsError = require('../errors/already-exists-err');
 const { NODE_ENV = 'production', JWT_SECRET } = process.env;
 
 const createUser = (req, res, next) => {
-  const { name, email, password} = req.body;
+  const { name, email, password } = req.body;
   bcrypt.hash(password, 10)
     .then((hash) => User.create({
       name,

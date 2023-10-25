@@ -4,7 +4,7 @@ const urlPattern = /^https?:\/\/w{0,3}\.?[\w-]+\.\w{1,3}[\w\-._~:/?#[\]@!$&'()*+
 
 const validateSigninFields = celebrate({
   body: Joi.object().keys({
-    email: Joi.string().required().email(),
+    email: Joi.string().required().email({ minDomainSegments: 2 }),
     password: Joi.string().required(),
   }),
 });
@@ -12,8 +12,8 @@ const validateSigninFields = celebrate({
 const validateSignupFields = celebrate({
   body: Joi.object().keys({
     name: Joi.string().min(2).max(30).required(),
-    email: Joi.string().required().email(),
-    password: Joi.string().required().min(),
+    email: Joi.string().required().email({ minDomainSegments: 2 }),
+    password: Joi.string().required(),
   }),
 });
 
@@ -48,7 +48,7 @@ const validateUserId = celebrate({
 
 const validateUserFields = celebrate({
   body: Joi.object().keys({
-    email: Joi.string().required().email(),
+    email: Joi.string().required().email({ minDomainSegments: 2 }),
     password: Joi.string().required(),
     name: Joi.string().min(2).max(30).required(),
   }),
