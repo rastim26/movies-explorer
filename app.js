@@ -8,6 +8,7 @@ const auth = require('./middlewares/auth');
 const errorHandler = require('./middlewares/error-handler');
 const { requestLogger, errorLogger } = require('./middlewares/loger');
 const { validateSigninFields, validateSignupFields } = require('./middlewares/validation');
+const corsHandler = require('./middlewares/corseHandler');
 const { login, createUser } = require('./controllers/user-auth');
 
 const app = express();
@@ -18,6 +19,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(helmet());
 app.use(requestLogger);
+app.use(corsHandler);
 
 app.post('/signin', validateSigninFields, login);
 app.post('/signup', validateSignupFields, createUser);
