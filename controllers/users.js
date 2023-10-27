@@ -3,7 +3,7 @@ const NotFoundError = require('../errors/not-found-err');
 const User = require('../models/user');
 
 const getUserInfo = (req, res, next) => {
-  User.findById(req.params.userId || req.user._id)
+  User.findById(req.user._id)
     .then((user) => res.status(200).send(user))
     .catch(next);
 };
