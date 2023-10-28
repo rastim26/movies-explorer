@@ -1,7 +1,7 @@
+const Movie = require('../models/movie');
 const NotFoundError = require('../errors/not-found-err');
 const ForbiddenError = require('../errors/forbidden-err');
-
-const Movie = require('../models/movie');
+const ValidationError = require('../errors/validation-error');
 
 const getMovies = (req, res, next) => {
   const userId = req.user._id;
@@ -35,7 +35,10 @@ const createMovie = (req, res, next) => {
     nameEN,
   })
     .then((movies) => res.staatus(201).send(movies))
-    .catch(next);
+    .catch((err) => {
+      if (err.name === ('ValidationError' || 'CastError')) return next(new ValidationError('Переданы некорректные данные'));
+      return next(err);
+    });
 };
 
 const deleteMovie = (req, res, next) => {
