@@ -1,6 +1,6 @@
-const NotFoundError = require('../errors/not-found-err');
-
 const User = require('../models/user');
+const NotFoundError = require('../errors/not-found-err');
+const AlreadyExistsError = require('../errors/already-exists-err');
 
 const getUserInfo = (req, res, next) => {
   User.findById(req.user._id)
@@ -17,7 +17,10 @@ const updateUserInfo = (req, res, next) => {
   )
     .orFail(new NotFoundError('Запрашиваемая запись не найдена'))
     .then((user) => res.status(200).send(user))
-    .catch(next);
+    .catch((err) => {
+      if (err.code === 11000) return next(new AlreadyExistsError('Данный email уже зарегистрирован!'));
+      return next(err);
+    });
 };
 
 module.exports = { getUserInfo, updateUserInfo };
