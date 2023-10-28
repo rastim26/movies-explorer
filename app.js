@@ -4,15 +4,13 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const helmet = require('helmet');
 const { errors } = require('celebrate');
-const auth = require('./middlewares/auth');
 const errorHandler = require('./middlewares/error-handler');
 const { requestLogger, errorLogger } = require('./middlewares/loger');
-const { validateSigninFields, validateSignupFields } = require('./middlewares/validation');
 const corsHandler = require('./middlewares/corseHandler');
-const { login, createUser } = require('./controllers/user-auth');
+const routes = require('./routes');
 
 const app = express();
-const { PORT = 3000, DB_URL = 'mongodb://127.0.0.1:27017/bitfilmsdb' } = process.env;
+const { PORT, DB_URL } = require('./utils');
 
 mongoose.connect(DB_URL);
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -21,12 +19,7 @@ app.use(helmet());
 app.use(requestLogger);
 app.use(corsHandler);
 
-app.post('/signin', validateSigninFields, login);
-app.post('/signup', validateSignupFields, createUser);
-
-app.use(auth);
-app.use('/users', require('./routes/users'));
-app.use('/movies', require('./routes/movies'));
+app.use('/', routes);
 
 app.use(errorLogger);
 app.use(errors());

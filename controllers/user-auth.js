@@ -3,7 +3,7 @@ const bcrypt = require('bcryptjs');
 const User = require('../models/user');
 const AlreadyExistsError = require('../errors/already-exists-err');
 
-const { NODE_ENV = 'production', JWT_SECRET } = process.env;
+const { NODE_ENV, JWT_SECRET, defaultJwtSecret } = require('../utils');
 
 const createUser = (req, res, next) => {
   const { name, email, password } = req.body;
@@ -26,7 +26,7 @@ const login = (req, res, next) => {
     .then((user) => {
       const token = jwt.sign(
         { _id: user._id },
-        NODE_ENV === 'production' ? JWT_SECRET : 'some-secret-key',
+        NODE_ENV === 'production' ? JWT_SECRET : defaultJwtSecret,
         { expiresIn: '7d' },
       );
       res.status(200).send({ token });
