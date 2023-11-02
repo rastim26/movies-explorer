@@ -1,7 +1,12 @@
+.body {
+  margin: 0;
+}
+
 .page {
 }
 
 .header {
+  background-color: #465dff;
   padding: 18px 70px;
   display: flex;
   justify-content: space-between;
@@ -37,26 +42,31 @@
   color: #fff;
 }
 
-.menu__profile-link {
-  color: #FFF;
-  font-family: Inter;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 1.15;
-}
-
 .header__profile {
   display: flex;
+  align-items: center;
   gap: 30px;
 }
 
 .header__profile-link {
-  color: #FFF;
   color: #FFF;
   font-family: Inter;
   font-size: 12px;
   font-style: normal;
   font-weight: 500;
   line-height: 1.33;
+  text-decoration: none;
+}
+
+.header__profile-link_button {
+  padding: 8px 20px;
+  border-radius: 3px;
+  background-color: #2BE080;
+  color: #000;
+}
+
+.hero {
+  padding: 75px 70px;
+  background-color: #465dff;
+
 }
