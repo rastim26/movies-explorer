@@ -126,7 +126,8 @@
 
 .about {
   padding: 110px 70px;
-  min-height: 388px;
+  min-height: 608px;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
 }
@@ -242,7 +243,9 @@
   padding: 100px 70px;
   display: flex;
   flex-direction: column;
-  min-height: 425px;
+  min-height: 625px;
+  box-sizing: border-box;
+  background: #F5F5F5;
 }
 
 .tech__title {
@@ -275,4 +278,32 @@
 
 .tech__word-cloud {
   margin-top: auto;
+}
+
+.word-cloud {
+  margin-bottom: 0;
+  padding-left: 0;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.word-cloud__item {
+  width: 90px;
+  height: 60px;
+  border-radius: 10px;
+  background: #E8E8E8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: #000;
+  text-align: center;
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.56px;
 }
