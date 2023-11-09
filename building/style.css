@@ -9,7 +9,13 @@
   background-color: #465dff;
   padding: 18px 70px;
   display: flex;
-  justify-content: space-;
+  justify-content: center;
+}
+
+.header__container {
+  width: 100%;
+  max-width: 1140px;
+  display: flex;
   align-items: center;
 }
 
@@ -70,6 +76,13 @@
   padding: 75px 70px;
   background-color: #465dff;
   display: flex;
+  justify-content: center;
+}
+
+.hero__container {
+  width: 100%;
+  max-width: 1140px;
+  display: flex;
   justify-content: space-between;
   min-height: 425px;
 }
@@ -127,9 +140,15 @@
 
 .about {
   padding: 110px 70px;
-  min-height: 608px;
-  box-sizing: border-box;
   background-color: #fff;
+  display: flex;
+  justify-content: center;
+}
+
+.about__container {
+  min-height: 388px;
+  width: 100%;
+  max-width: 1140px;
   display: flex;
   flex-direction: column;
 }
@@ -244,10 +263,16 @@
 .tech {
   padding: 100px 70px;
   display: flex;
-  flex-direction: column;
-  min-height: 625px;
-  box-sizing: border-box;
+  justify-content: center;
   background: #F5F5F5;
+}
+
+.thech__container {
+  min-height: 425px;
+  width: 100%;
+  max-width: 1140px;
+  display: flex;
+  flex-direction: column;
 }
 
 .tech__title {
@@ -312,7 +337,13 @@
 
 .student {
   padding: 110px 70px 50px;
+  display: flex;
+  justify-content: center;
+}
 
+.student__container {
+  width: 100%;
+  max-width: 1140px;
 }
 
 .student__content {
@@ -392,6 +423,13 @@
 .portfolio {
   padding: 50px 70px 125px;
   background-color: #fff;
+  display: flex;
+  justify-content: center;
+}
+
+.portfolio__container {
+  width: 100%;
+  max-width: 1140px;
 }
 
 .portfolio__title {
