@@ -158,7 +158,7 @@
   .hero__container {
     flex-direction: column-reverse;
     align-items: center;
-    gap: 48px;
+    gap: 55px;
   }
   
   .hero__content {
@@ -174,6 +174,7 @@
 
   .hero__text {
     margin-top: 22px;
+    max-width: 260px;
   }
 }
 
@@ -252,6 +253,11 @@
 @media (max-width: 768px) {
   .about {
     padding: 90px 50px;
+    min-height: 405px;
+  }
+
+  .about__table {
+    gap: 30px;
   }
 
   .about__subtitle {
@@ -306,8 +312,13 @@
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
-  line-height: 1.21
-  ;
+  line-height: 1.21;
+}
+
+@media (max-width: 768px) {
+  .chart__step_done {
+    width: 177px;
+  }
 }
 
 .tech {
@@ -317,7 +328,7 @@
   background: #F5F5F5;
 }
 
-.thech__container {
+.tech__container {
   min-height: 425px;
   width: 100%;
   max-width: 1140px;
@@ -363,7 +374,7 @@
   }
   
   .tech__container {
-    min-height: 387px;
+    min-height: 390px;
   }
   
   .tech__title {
@@ -372,7 +383,8 @@
 
   .tech__subtitle {
     margin-top: 22px;
-
+    max-width: 455px;
+    font-size: 12px;
   }
 }
 
@@ -402,6 +414,13 @@
   font-weight: 400;
   line-height: normal;
   letter-spacing: -0.56px;
+}
+
+@media (max-width: 768px) {
+  .word-cloud {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
 }
 
 .student {
@@ -494,6 +513,10 @@
     padding: 90px 50px 40px;
   }
 
+  .student__content {
+    margin-top: 63px;
+  }
+
   .student__info {
     max-width: 363px;
   }
@@ -503,7 +526,7 @@
   }
 
   .student__descr {
-    margin-top: 16px;
+    margin-top: 12px;
     font-size: 12px;
     line-height: 1.5;
   }
@@ -578,6 +601,11 @@
 
   .portfolio__link {
     font-size: 28px;
+  }
+
+  .portfolio__link-item {
+    padding-top: 23px;
+    padding-bottom: 21px;
   }
 }
 
@@ -655,6 +683,7 @@
 
 @media (max-width:768px) {
   .footer {
+    padding-top: 60px;
     padding-left: 30px;
     padding-right: 30px;
   }
