@@ -72,6 +72,13 @@
   color: #000;
 }
 
+@media (max-width:768px) {
+  .header {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
+
 .hero {
   padding: 75px 70px;
   background-color: #465dff;
@@ -147,14 +154,15 @@
   .hero {
     padding-top: 140px;
   }
-
+  
   .hero__container {
     flex-direction: column-reverse;
     align-items: center;
     gap: 48px;
   }
-
+  
   .hero__content {
+    min-height: 280px;
     align-items: center;
     text-align: center;
   }
@@ -239,6 +247,17 @@
 
 .about__chart {
   margin-top: auto;
+}
+
+@media (max-width: 768px) {
+  .about {
+    padding: 90px 50px;
+  }
+
+  .about__subtitle {
+    margin-top: 22px;
+    font-size: 12px;
+  }
 }
 
 .chart {
@@ -336,6 +355,25 @@
 
 .tech__word-cloud {
   margin-top: auto;
+}
+
+@media (max-width:768px) {
+  .tech {
+    padding: 90px 50px;
+  }
+  
+  .tech__container {
+    min-height: 387px;
+  }
+  
+  .tech__title {
+    margin-top: 80px;
+  }
+
+  .tech__subtitle {
+    margin-top: 22px;
+
+  }
 }
 
 .word-cloud {
@@ -451,6 +489,32 @@
   object-position: center;
 }
 
+@media (max-width:768px) {
+  .student {
+    padding: 90px 50px 40px;
+  }
+
+  .student__info {
+    max-width: 363px;
+  }
+
+  .student__name {
+    font-size: 40px;
+  }
+
+  .student__descr {
+    margin-top: 16px;
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  .student__text {
+    margin-top: 20px;
+    font-size: 12px;
+    line-height: 1.5;
+  }
+}
+
 .portfolio {
   padding: 51px 70px 107px;
   background-color: #fff;
@@ -507,9 +571,26 @@
   letter-spacing: -1.2px;
 }
 
+@media (max-width:768px) {
+  .portfolio {
+    padding: 50px 50px 90px;
+  }
+
+  .portfolio__link {
+    font-size: 28px;
+  }
+}
+
 .footer {
   padding: 79px 70px 20px;
   background: #FAFAFA;
+  display: flex;
+  justify-content: center;
+}
+
+.footer__container {
+  width: 100%;
+  max-width: 1140px;
 }
 
 .footer__title {
@@ -570,4 +651,11 @@
   font-weight: 400;
   line-height: normal;
   display: block;
+}
+
+@media (max-width:768px) {
+  .footer {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
 }
