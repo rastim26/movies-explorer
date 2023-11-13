@@ -2,9 +2,6 @@
   margin: 0;
 }
 
-.page {
-}
-
 .header {
   background-color: #465dff;
   padding: 18px 70px;
@@ -162,7 +159,7 @@
   flex-direction: column;
 }
 
-.section__title {
+.section-title {
   margin-top: 0;
   margin-bottom: 0;
   color: #000;
@@ -174,7 +171,7 @@
   letter-spacing: -0.88px;
 }
 
-.section__line {
+.section-line {
   margin-top: 23px;
   border-bottom: 1px solid #000;
   width: 100%;
@@ -755,11 +752,11 @@
   .about__container {
   }
 
-  .section__title {
+  .section-title {
     font-size: 18px;
   }
 
-  .section__line {
+  .section-line {
     margin-top: 28px;
   }
 
