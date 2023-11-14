@@ -1,5 +1,12 @@
 .search {
   padding: 70px 70px 47px;
+  display: flex;
+  justify-content: center;
+}
+
+.search__container {
+  max-width: 1140px;
+  width: 100%;
 }
 
 .search__form {
@@ -92,7 +99,13 @@
 
 .cards {
   padding: 70px 70px 0;
-  
+  display: flex;
+  justify-content: center;
+}
+
+.cards__container {
+  max-width: 1140px;
+  width: 100%;
 }
 
 .cards__list {
@@ -156,6 +169,13 @@
 
 .more {
   padding: 80px 70px;
+  display: flex;
+  justify-content: center;
+}
+
+.more__container {
+  max-width: 1140px;
+  width: 100%;
 }
 
 .more__load {
