@@ -1,8 +1,8 @@
-.finder {
+.search {
   padding: 70px 70px 49px;
 }
 
-.finder__form {
+.search__form {
   border-bottom: 1px solid #E8E8E8;
   padding-bottom: 15px;
   display: flex;
@@ -11,7 +11,7 @@
   gap: 10px;
 }
 
-.finder__input-label {
+.search__input-label {
   background: url('../src/images/icons/search.svg');
   border: 1px solid #E8E8E8;
   border-radius: 50%;
@@ -20,7 +20,7 @@
   cursor: pointer;
 }
 
-.finder__input {
+.search__input {
   border: none;
   flex-grow: 1;
   text-align: center;
@@ -32,7 +32,7 @@
   line-height: normal;
 }
 
-.finder__submit {
+.search__submit {
   border: none;
   background-color: #FF6838;
   background-image: url('../src/images/icons/arrow-right.svg');
@@ -42,14 +42,14 @@
   cursor: pointer;
 }
 
-.finder__control {
+.search__control {
   margin-top: 29px;
   display: flex;
   justify-content: center;
   gap: 12px;
 }
 
-.finder__checkbox {
+.search__checkbox {
   margin: 0;
   width: 0;
   width: 36px;
@@ -57,7 +57,7 @@
   visibility: hidden;
 }
 
-.finder__checkbox:before {
+.search__checkbox:before {
   content: "";
   background-image: url('../src/images/icons/checkbox-unchecked.svg');
   width: 36px;
@@ -67,7 +67,7 @@
   cursor: pointer;
 }
 
-.finder__checkbox:checked:before {
+.search__checkbox:checked:before {
   content: "";
   background-image: url('../src/images/icons/checkbox-checked.svg');
   width: 36px;
@@ -75,7 +75,7 @@
   display: inline-block;
 }
 
-.finder__checkbox-label {
+.search__checkbox-label {
   color: #000;
   font-family: Inter;
   font-size: 14px;
@@ -84,12 +84,12 @@
   line-height: 1.29; /* 128.571% */
 }
 
-.film-gallery {
+.cards {
   padding: 70px 70px 0;
   
 }
 
-.film-gallery__list {
+.cards__list {
   margin-top: 0;
   margin-bottom: 0;
   padding-left: 0;
@@ -101,18 +101,18 @@
 
 }
 
-.film-gallery__item {
+.cards__item {
   background: #FDFDFD;
   box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.08); 
 }
 
-.film-gallery__panel {
+.cards__panel {
   padding: 14px;
   display: flex;
   justify-content: space-between;
 }
 
-.film-gallery__name {
+.cards__name {
   color: #000;
   font-family: Inter;
   font-size: 15px;
@@ -121,7 +121,7 @@
   line-height: normal;
 }
 
-.film-gallery__length {
+.cards__length {
   margin-top: 9px;
   color: #A0A0A0;
   font-family: Inter;
@@ -131,7 +131,7 @@
   line-height: normal;
 }
 
-.film-gallery__save {
+.cards__save {
   border: none;
   background-color: #F9F9F9;
   background-image: url(../src/images/icons/flag-off.svg);
@@ -143,17 +143,16 @@
   cursor: pointer;
 }
 
-.film-gallery__preview {
+.cards__preview {
   width: 100%;
   display: block;
 }
 
-.film-gallery__control {
-  padding-top: 80px;
-  padding-bottom: 80px;
+.more {
+  padding: 80px 70px;
 }
 
-.film-gallery__load {
+.more__load {
   border: none;
   background-color: #F9F9F9;
   border-radius: 6px;
