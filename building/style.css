@@ -9,6 +9,10 @@
   justify-content: center;
 }
 
+.header_light {
+  background-color: #fff;
+}
+
 .header__container {
   width: 100%;
   max-width: 1140px;
@@ -34,9 +38,6 @@
   list-style: none;
   display: flex;
   gap: 16px;
-}
-
-.menu__item {
 }
 
 .menu__link {

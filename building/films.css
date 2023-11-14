@@ -196,9 +196,7 @@
   cursor: pointer;
 }
 
-.header_light {
-  background-color: #fff;
-}
+
 
 
 @media (max-width: 870px) {

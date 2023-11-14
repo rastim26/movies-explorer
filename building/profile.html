@@ -6,6 +6,7 @@
   <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="films.css">
+  <link rel="stylesheet" href="profile.css">
   <title>Movies Explorer</title>
 </head>
 <body class="body">
@@ -13,7 +14,7 @@
     <header class="header header_light">
       <div class="header__container">
         <img src="../src/images/logo.svg" alt="logo" class="site-logo">
-        <nav class="header__menu menu menu_open">
+        <nav class="header__menu menu">
           <ul class="menu__list">
             <li class="menu__item"><a href="#" class="menu__link">Фильмы</a></li>
             <li class="menu__item"><a href="#" class="menu__link">Сохраненные фильмы</a></li>
@@ -34,51 +35,33 @@
 
 
     <main class="content">
-      <section class="greating">
-        <h1 class="greating__message">Привет, Виталий</h1>
-      </section>
-      <!-- /.greating -->
       <section class="profile">
-        <table class="profile__table">
-          <tr>
-            <th>Имя</th>
-            <td>Виталий</td>
-          </tr>
-          <tr>
-            <th>E-mail</th>
-            <td>pochta@yandex.ru</td>
-          </tr>
+        <h1 class="profile__message">Привет, Виталий!</h1>
+
+        <table class="profile__table table">
+          <tbody>
+            <tr>
+              <th class="table__th table__first-row">Имя</th>
+              <td class="table__td table__first-row">Виталий</td>
+            </tr>
+            <tr>
+              <th class="table__th table__second-row">E-mail</th>
+              <td class="table__td table__second-row">pochta@yandex.ru</td>
+            </tr>
+          </tbody>
         </table>
-      </section>
-      <!-- /.profile -->
-      <section class="profile-control">
-        <ul class="profile-control__list">
-          <li class="profile-control__item">
-            <a href="" class="profile-control__link">Редактировать</a>
+
+        <ul class="profile__control-list">
+          <li class="profile__control-item">
+            <a href="" class="profile__control-link">Редактировать</a>
           </li>
-          <li class="profile-control__item">
-            <a href="" class="profile-control__link profile-control__link_danger">Выйти из аккаунта</a>
+          <li class="profile__control-item">
+            <a href="" class="profile__control-link profile__control-link_danger">Выйти из аккаунта</a>
           </li>
         </ul>
       </section>
-      <!-- /.profile-control -->
+      <!-- /.profile -->
     </main>
-    
-    <footer class="footer">
-      <div class="footer__container">
-        <h2 class="footer__title">Учебный проект Яндекс.Практикум х BeatFilm.</h2>
-        <div class="footer__line"></div>
-        <div class="footer__bottom">
-          <p class="footer__copyright">© 2020</p>
-          <nav class="footer__menu">
-            <ul class="footer__list">
-              <li class="footer__item"><a href="#" class="footer__link">Яндекс.Практикум</a></li>
-              <li class="footer__item"><a href="#" class="footer__link">Github</a></li>
-            </ul>
-          </nav>
-        </div>
-      </div>
-    </footer>
   </div>
 </body>
 </html>
