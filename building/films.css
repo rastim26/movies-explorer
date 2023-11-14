@@ -180,3 +180,27 @@
 .header__profile-link_bg-light {
   color: #000;
 }
+
+
+
+@media (max-width: 870px) {
+  .search {
+    padding: 86px 30px 62px;
+  }
+
+  .cards {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  .cards__list {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 30px;
+    row-gap: 36px;
+  }
+
+  .more {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
