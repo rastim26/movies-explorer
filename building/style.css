@@ -672,7 +672,7 @@
   }
 
   .portfolio {
-    padding: 50px 50px 90px;
+    padding: 50px 50px 93px;
   }
 
   .portfolio__link {
@@ -684,8 +684,13 @@
     padding-bottom: 21px;
   }
 
+  .portfolio__link-item:last-child {
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+
   .footer {
-    padding-top: 60px;
+    padding-top: 79px;
     padding-left: 30px;
     padding-right: 30px;
   }

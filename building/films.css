@@ -22,6 +22,7 @@
 }
 
 .search__input {
+  padding: 0;
   border: none;
   flex-grow: 1;
   text-align: center;
@@ -31,6 +32,10 @@
   font-style: normal;
   font-weight: 500;
   line-height: normal;
+}
+
+.search__input::placeholder {
+  color: #A0A0A0;
 }
 
 .search__submit {
@@ -202,5 +207,50 @@
   .more {
     padding-left: 30px;
     padding-right: 30px;
+  }
+}
+
+@media (max-width: 580px) {
+  .search {
+    padding: 92px 14px 50px;
+  }
+
+  .search__form {
+    padding-bottom: 9px;
+  }
+
+  .search__input-label {
+    display: none;
+  }
+
+  .search__input {
+    text-align: left;
+    font-size: 18px;
+  }
+
+  .search__control {
+    margin-top: 42px;
+    gap: 13px;
+  }
+
+  .search__checkbox-label {
+    font-size: 11px;
+    line-height: 1.64; /* 163.636% */
+  }
+
+  .cards {
+    padding-top: 40px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .cards__list {
+    grid-template-columns: 1fr;
+    row-gap: 16px;
+  }
+
+  .more {
+    padding-left: 10px;
+    padding-right: 10px;
   }
 }
