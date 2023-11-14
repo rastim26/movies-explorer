@@ -20,6 +20,13 @@
   margin-left: 45px;
 }
 
+.menu {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .menu__list {
   margin-top: 0;
   margin-bottom: 0;
@@ -45,9 +52,98 @@
   display: flex;
 }
 
+.menu__profile {
+  text-decoration: none;
+  color: #FFF;
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.14; /* 114.286% */
+  display: flex;
+  align-items: center;
+  gap: 17px;
+}
+
+.menu__profile::after {
+  content: '';
+  display: inline-block;
+  width: 26px;
+  height: 30px;
+  border-radius: 4px;
+  background-color: #2BE080;
+  background-image: url(../src/images/icons/profile.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+
+}
+
+.menu__profile_bg-light::after {
+  background-color: #F9F9F9;;
+}
+
+.menu__profile_bg-light {
+  color: #000;
+}
+
+.burger {
+  border: none;
+  background: none;
+  padding: 0;
+  margin-left: auto;
+  width: 44px;
+  height: 44px;
+  z-index: 2;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+}
+
+.burger__strip {
+  height: 3px;
+  width: 28px;
+  background-color: #000;
+  position: relative;
+}
+
+.burger::before {
+  content: '';
+  height: 3px;
+  width: 28px;
+  background-color: #000;
+  position: absolute;
+  bottom: 10px;
+  left: 15%;
+}
+
+.burger::after {
+  content: '';
+  height: 3px;
+  width: 28px;
+  background-color: #000;
+  position: absolute;
+  top: 10px;
+  left: 15%;
+}
+
+.burger_open::before {
+  transform: translateY(-10px) rotate(45deg);
+}
+
+.burger_open::after {
+  transform: translateY(10px) rotate(-45deg);
+}
+
+.burger_open .burger__strip {
+  transform: scale(0);
+}
+
 .header__profile {
   margin-left: auto;
-  display: flex;
+  /* display: flex; */
+  display: none;
   align-items: center;
   gap: 30px;
 }
@@ -566,6 +662,14 @@
     padding-right: 30px;
   }
 
+  .menu {
+    display: none;
+  }
+
+  .burger {
+    display: flex;
+  }
+
   .hero {
     padding-top: 140px;
   }
@@ -705,10 +809,6 @@
     padding-right: 14px;
   }
 
-  .header__menu {
-    display: none;
-  }
-
   .header__profile {
     gap: 14px;
   }
@@ -720,7 +820,6 @@
   .header__profile-link_button {
     padding: 5px 12px;
   }
-
 
   .hero {
     padding: 70px 10px 30px;
@@ -752,9 +851,6 @@
 
   .about {
     padding: 70px 18px;
-  }
-
-  .about__container {
   }
 
   .section-title {
