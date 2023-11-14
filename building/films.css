@@ -200,17 +200,6 @@
   background-color: #fff;
 }
 
-.menu__link_bg-light {
-  color: #000;
-}
-
-.header__profile-link_bg-light {
-  color: #000;
-}
-
-
-
-
 
 @media (max-width: 870px) {
   .search {

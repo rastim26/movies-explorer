@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="films.css">
+
   <title>Movies Explorer</title>
 </head>
 <body class="body">
@@ -12,18 +14,25 @@
     <header class="header">
       <div class="header__container">
         <img src="../src/images/logo.svg" alt="logo" class="site-logo">
-        <nav class="header__menu menu">
+        <nav class="header__menu menu menu_open menu_bg-dark">
           <ul class="menu__list">
             <li class="menu__item"><a href="#" class="menu__link">Фильмы</a></li>
             <li class="menu__item"><a href="#" class="menu__link">Сохраненные фильмы</a></li>
           </ul>
+          <a href="#" class="menu__profile">Аккаунт</a>
         </nav>
+
+        <button class="burger burger_open">
+          <span class="burger__strip"></span>
+        </button>
+
         <div class="header__profile">
            <a href="#" class="header__profile-link">Регистрация</a>
            <a href="#" class="header__profile-link header__profile-link_button">Войти</a>
         </div>
       </div>
     </header>
+
     <main class="content">
       <section class="hero">
         <div class="hero__container">
