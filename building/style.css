@@ -24,6 +24,10 @@
   margin-left: 45px;
 }
 
+.site-logo {
+  display: block;
+}
+
 .menu {
   width: 100%;
   display: flex;
