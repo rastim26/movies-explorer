@@ -49,7 +49,7 @@
   display: flex;
   color: #000;
   text-align: right;
-  font-family: Inter;
+  font-family: Inter, Arial, sans-serif;
   font-size: 13px;
   font-style: normal;
   font-weight: 400;
@@ -59,7 +59,7 @@
 .menu__profile {
   text-decoration: none;
   color: #000;
-  font-family: Inter;
+  font-family: Inter, Arial, sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
@@ -160,7 +160,7 @@
 .header__profile-link {
   color: #FFF;
   text-decoration: none;
-  font-family: Inter;
+  font-family: Inter, Arial, sans-serif;
   font-size: 12px;
   font-style: normal;
   font-weight: 500;
@@ -221,7 +221,7 @@
   margin-bottom: 30px;
   color: #FFF;
   opacity: 0.5;
-  font-family: Inter;
+  font-family: Inter, Arial, sans-serif;
   font-size: 13px;
   font-style: normal;
   font-weight: 400;
@@ -233,7 +233,7 @@
   color: #FFF;
   text-decoration: none;
   margin-top: auto;
-  font-family: Inter;
+  font-family: Inter, Arial, sans-serif;
   font-size: 12px;
   font-style: normal;
   font-weight: 500;
@@ -268,7 +268,7 @@
   margin-top: 0;
   margin-bottom: 0;
   color: #000;
-  font-family: Inter;
+  font-family: Inter, Arial, sans-serif;
   font-size: 22px;
   font-style: normal;
   font-weight: 400;
@@ -297,7 +297,7 @@
   margin-top: 0;
   margin-bottom: 0;
   color: #000;
-  font-family: Inter;
+  font-family: Inter, Arial, sans-serif;
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
@@ -310,7 +310,7 @@
   margin-bottom: 0;
   margin-top: 26px;
   color: #000;
-  font-family: Inter;
+  font-family: Inter, Arial, sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -346,7 +346,7 @@
   justify-content: center;
   color: #000;
   text-align: center;
-  font-family: Inter;
+  font-family: Inter, Arial, sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -365,7 +365,7 @@
   justify-content: center;
   color: #A0A0A0;
   text-align: center;
-  font-family: Inter;
+  font-family: Inter, Arial, sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
@@ -393,7 +393,7 @@
   max-width: 600px;
   color: #000;
   text-align: center;
-  font-family: Inter;
+  font-family: Inter, Arial, sans-serif;
   font-size: 50px;
   font-style: normal;
   font-weight: 400;
@@ -408,7 +408,7 @@
   max-width: 460px;
   color: #000;
   text-align: center;
-  font-family: Inter;
+  font-family: Inter, Arial, sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -442,7 +442,7 @@
 
   color: #000;
   text-align: center;
-  font-family: Inter;
+  font-family: Inter, Arial, sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -480,7 +480,7 @@
   margin-top: 0;
   margin-bottom: 0;
   color: #000;
-  font-family: Inter;
+  font-family: Inter, Arial, sans-serif;
   font-size: 50px;
   font-style: normal;
   font-weight: 400;
@@ -494,7 +494,7 @@
   margin-top: 18px;
   color: #000;
   font-feature-settings: 'clig' off, 'liga' off;
-  font-family: Inter;
+  font-family: Inter, Arial, sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 500;
@@ -508,7 +508,7 @@
   margin-bottom: 40px;
   color: #000;
   font-feature-settings: 'clig' off, 'liga' off;
-  font-family: Inter;
+  font-family: Inter, Arial, sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -518,7 +518,7 @@
   text-decoration: none;
   color: #000;
   margin-top: auto;
-  font-family: Inter;
+  font-family: Inter, Arial, sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
@@ -552,7 +552,7 @@
   margin-bottom: 0;
   color: #A0A0A0;
   font-feature-settings: 'clig' off, 'liga' off;
-  font-family: Inter;
+  font-family: Inter, Arial, sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
@@ -583,7 +583,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-family: Inter;
+  font-family: Inter, Arial, sans-serif;
   font-size: 30px;
   font-style: normal;
   font-weight: 400;
@@ -611,7 +611,7 @@
   color: #A0A0A0;
   text-align: center;
   font-feature-settings: 'clig' off, 'liga' off;
-  font-family: Inter;
+  font-family: Inter, Arial, sans-serif;
   font-size: 13px;
   font-style: normal;
   font-weight: 400;
@@ -634,7 +634,7 @@
   margin-bottom: 0;
   color: #000;
   font-feature-settings: 'clig' off, 'liga' off;
-  font-family: Inter;
+  font-family: Inter, Arial, sans-serif;
   font-size: 13px;
   font-style: normal;
   font-weight: 400;
@@ -656,7 +656,7 @@
   color: #000;
   text-align: right;
   font-feature-settings: 'clig' off, 'liga' off;
-  font-family: Inter;
+  font-family: Inter, Arial, sans-serif;
   font-size: 13px;
   font-style: normal;
   font-weight: 400;
