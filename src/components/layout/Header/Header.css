@@ -1,0 +1,252 @@
+.header {
+  background-color: #465dff;
+  padding: 18px 70px;
+  display: flex;
+  justify-content: center;
+}
+
+.header_light {
+  background-color: #fff;
+}
+
+.header__container {
+  width: 100%;
+  max-width: 1140px;
+  display: flex;
+  align-items: center;
+}
+
+.header__menu {
+  margin-left: 45px;
+}
+
+.site-logo {
+  display: block;
+}
+
+.menu {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu__list {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-inline-start: 0;
+  list-style: none;
+  display: flex;
+  gap: 16px;
+}
+
+.menu__link {
+  text-decoration: none;
+  display: flex;
+  color: #000;
+  text-align: right;
+  font-family: Inter, Arial, sans-serif;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.menu__profile {
+  text-decoration: none;
+  color: #000;
+  font-family: Inter, Arial, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.14; /* 114.286% */
+  display: flex;
+  align-items: center;
+  gap: 17px;
+}
+
+.menu__profile::after {
+  content: '';
+  display: inline-block;
+  width: 26px;
+  height: 30px;
+  border-radius: 4px;
+  background-color: #F9F9F9;
+  background-image: url(../../../images/icons/profile.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+
+}
+
+.menu__link_bg-dark, 
+.menu__profile_bg-dark {
+  color: #fff;
+}
+
+.menu__profile_bg-dark::after {
+  background-color: #2BE080;;
+}
+
+.burger {
+  border: none;
+  background: none;
+  padding: 0;
+  margin-left: auto;
+  width: 44px;
+  height: 44px;
+  z-index: 2;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+}
+
+.burger__strip {
+  height: 3px;
+  width: 28px;
+  background-color: #000;
+  position: absolute;
+  top: auto;
+  left: 15%;
+}
+
+.burger::before {
+  content: '';
+  height: 3px;
+  width: 28px;
+  background-color: #000;
+  position: absolute;
+  bottom: 10px;
+  left: 15%;
+}
+
+.burger::after {
+  content: '';
+  height: 3px;
+  width: 28px;
+  background-color: #000;
+  position: absolute;
+  top: 10px;
+  left: 15%;
+}
+
+.burger_open::before {
+  transform: translateY(-10px) rotate(45deg);
+}
+
+.burger_open::after {
+  transform: translateY(10px) rotate(-45deg);
+}
+
+.burger_open .burger__strip {
+  transform: scale(0);
+}
+
+.header__profile {
+  margin-left: auto;
+  /* display: flex; */
+  display: none;
+  align-items: center;
+  gap: 30px;
+}
+
+.header__profile-link {
+  color: #FFF;
+  text-decoration: none;
+  font-family: Inter, Arial, sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 16px;
+}
+
+.header__profile-link_button {
+  padding: 8px 20px;
+  border-radius: 3px;
+  background-color: #2BE080;
+  color: #000;
+}
+
+
+@media (max-width:870px) {
+  .header {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  .header__menu {
+    margin-left: 0;
+  }
+
+  .menu {
+    max-width: 520px;
+    width: 100vw;
+    height: 100vh;
+    box-sizing: border-box;
+    padding: 159px 30px 92px;
+    background-color: #fff;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  .menu_open {
+    display: flex;
+  }
+
+  .menu__list {
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
+  }
+
+  .menu__link {
+    font-size: 18px;
+    text-align: center;
+    color: #000;
+  }
+
+  .menu__profile_bg-dark {
+    color: #000;
+  }
+
+  .menu__profile_bg-dark::after {
+    background-color: #F9F9F9;;
+  }
+
+  .burger {
+    display: flex;
+  }
+}
+
+@media (max-width:580px) {
+  .header {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .header__profile {
+    gap: 14px;
+  }
+
+  .header__profile-link {
+    font-size: 10px;
+  }
+
+  .header__profile-link_button {
+    padding: 5px 12px;
+  }
+
+  .menu {
+    padding-top: 144px 10px 48px;
+  }
+
+  .menu__list {
+    gap: 24px;
+  }
+}
