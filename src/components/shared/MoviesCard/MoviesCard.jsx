@@ -3,16 +3,16 @@ import './MoviesCard.css';
 
 function MoviesCard() {
   return (
-    <li class="cards__item">
-      <div class="cards__panel">
-        <div class="cards__info">
-          <div class="cards__name">33 слова о дизайне</div>
-          <div class="cards__length">1ч 47м</div>
+    <li className="cards__item">
+      <div className="cards__panel">
+        <div className="cards__info">
+          <div className="cards__name">33 слова о дизайне</div>
+          <div className="cards__length">1ч 47м</div>
         </div>
-        <button type="button" class="cards__save"></button>
+        <button type="button" className="cards__save"></button>
       </div>
-      <a href="#" class="cards__preview-link">
-        <img src={preview} alt="Превью" class="cards__preview" />
+      <a href="#" className="cards__preview-link">
+        <img src={preview} alt="Превью" className="cards__preview" />
       </a>
     </li>
   );

@@ -1,4 +1,5 @@
 import logo from '../../../images/logo.svg';
+import Navigation from '../../shared/Navigation/Navigation';
 import './Header.css';
 
 function Header() {
@@ -6,17 +7,8 @@ function Header() {
     <header className="header">
       <div className="header__container">
         <img src={logo} alt="logo" className="site-logo" />
-        <nav className="header__menu menu .menu_open menu_bg-dark">
-          <ul className="menu__list">
-            <li className="menu__item">
-              <a href="#" className="menu__link menu__link_bg-dark">Фильмы</a>
-            </li>
-            <li className="menu__item">
-              <a href="#" className="menu__link menu__link_bg-dark">Сохраненные фильмы</a>
-            </li>
-          </ul>
-          <a href="#" className="menu__profile menu__profile_bg-dark ">Аккаунт</a>
-        </nav>
+
+        <Navigation />
 
         <button className="burger .burger_open">
           <span className="burger__strip"></span>
