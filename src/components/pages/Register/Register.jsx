@@ -10,7 +10,9 @@ function Register() {
       
         <section className="sign">
           <div className="sign__container">
-            <img src={logo} alt="logo" className="sign__site-logo site-logo" />
+            <Link to="/">
+              <img src={logo} alt="logo" className="sign__site-logo site-logo" />
+            </Link>
 
             <h1 className="sign__page-title page-title">Добро пожаловать!</h1>
             <form className="sign__form form">
