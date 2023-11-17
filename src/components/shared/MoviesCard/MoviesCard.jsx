@@ -11,9 +11,7 @@ function MoviesCard() {
         </div>
         <button type="button" className="cards__save"></button>
       </div>
-      <a href="#" className="cards__preview-link">
-        <img src={preview} alt="Превью" className="cards__preview" />
-      </a>
+      <img src={preview} alt="Превью" className="cards__preview" />
     </li>
   );
 }

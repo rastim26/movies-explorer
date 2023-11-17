@@ -82,10 +82,13 @@
 
 .header__profile {
   margin-left: auto;
-  /* display: flex; */
   display: none;
   align-items: center;
   gap: 30px;
+}
+
+.header__profile_active {
+  display: flex;
 }
 
 .header__profile-link {

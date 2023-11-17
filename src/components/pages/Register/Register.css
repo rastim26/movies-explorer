@@ -67,7 +67,7 @@
 
 .form__err-text {
   margin-top: 10px;
-  margin-bottom: 0;
+  display: block;
   color: #EE3465;
   font-family: Inter, Arial, sans-serif;
   font-size: 10px;

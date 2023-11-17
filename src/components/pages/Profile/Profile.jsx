@@ -25,10 +25,10 @@ function Profile() {
 
           <ul className="profile__control-list">
             <li className="profile__control-item">
-              <a href="" className="profile__control-link">Редактировать</a>
+              <button className="profile__control-link">Редактировать</button>
             </li>
             <li className="profile__control-item">
-              <a href="" className="profile__control-link profile__control-link_danger">Выйти из аккаунта</a>
+              <button className="profile__control-link profile__control-link_danger">Выйти из аккаунта</button>
             </li>
           </ul>
         </section>

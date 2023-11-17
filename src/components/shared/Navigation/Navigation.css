@@ -106,7 +106,7 @@
 
 @media (max-width:580px) {
   .menu {
-    padding-top: 144px 10px 48px;
+    padding: 144px 10px 48px;
   }
 
   .menu__list {
