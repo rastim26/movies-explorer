@@ -1,6 +1,6 @@
 import './App.css';
 import React from 'react';
-// import { Routes, Route, Navigate, useNavigate } from 'react-router-dom';
+import { Routes, Route, Navigate, useNavigate } from 'react-router-dom';
 
 import Main from '../pages/Main/Main';
 import Movies from '../pages/Movies/Movies';
@@ -16,8 +16,8 @@ function App() {
   return (
     // <CurrentUserContext.Provider value={currentUser} >
       <div className="app">
-        {/* <Routes>
-          <Route path="/" element={<AboutProject />} />
+        <Routes>
+          <Route path="/" element={<Main />} />
           <Route path="/movies" element={<Movies />} />
           <Route path="/saved-movies" element={<SavedMovies />} />
           <Route path="/profile" element={<Profile />} />
@@ -25,15 +25,8 @@ function App() {
           <Route path="/signin" element={<Login />} />
           <Route path="/signup" element={<Register />} />
           <Route path="*" element={<NotFound404 />} />
-        </Routes> */}
+        </Routes>
 
-        {/* <Main /> */}
-        {/* <Movies /> */}
-        {/* <SavedMovies /> */}
-        {/* <Profile /> */}
-        {/* <Register /> */}
-        {/* <Login /> */}
-        <NotFound404 />
       </div>
     // </CurrentUserContext.Provider>
   );
