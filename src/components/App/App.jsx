@@ -7,7 +7,7 @@ import Movies from '../pages/Movies/Movies';
 import SavedMovies from "../pages/SavedMovies/SavedMovies";
 import Profile from "../pages/Profile/Profile";
 import Register from "../pages/Register/Register";
-// import Login from "../pages/Login/Login";
+import Login from "../pages/Login/Login";
 // import NotFound404 from '../404/404';
 
 
@@ -32,6 +32,7 @@ function App() {
         {/* <SavedMovies /> */}
         {/* <Profile /> */}
         {/* <Register /> */}
+        <Login />
       </div>
     // </CurrentUserContext.Provider>
   );
