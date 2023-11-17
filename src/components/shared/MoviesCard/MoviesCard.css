@@ -1,0 +1,47 @@
+
+.cards__item {
+  background: #FDFDFD;
+  box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.08); 
+}
+
+.cards__panel {
+  padding: 14px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.cards__name {
+  color: #000;
+  font-family: Inter, Arial, sans-serif;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.cards__length {
+  margin-top: 9px;
+  color: #A0A0A0;
+  font-family: Inter, Arial, sans-serif;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.cards__save {
+  border: none;
+  background-color: #F9F9F9;
+  background-image: url(../../../images/icons/flag-off.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+  width: 33px;
+  height: 33px;
+  cursor: pointer;
+}
+
+.cards__preview {
+  width: 100%;
+  display: block;
+}

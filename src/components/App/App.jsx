@@ -9,13 +9,10 @@ import React from 'react';
 // import Login from "../account/Login/Login";
 // import Register from "../account/Register/Register";
 // import NotFound404 from '../404/404';
-import Header from '../layout/Header/Header';
-import Footer from "../layout/Footer/Footer"
-import AboutProject from '../layout/AboutProject/AboutProject';
-import Techs from '../layout/Techs/Techs';
-import AboutMe from '../layout/AboutMe/AboutMe';
-import Portfolio from '../layout/Portfolio/Portfolio';
-import Promo from '../layout/Promo/Promo';
+
+
+// import Main from '../pages/Main/Main';
+import Movies from '../pages/Movies/Movies';
 
 function App() {
   return (
@@ -31,15 +28,8 @@ function App() {
           <Route path="/signup" element={<Register />} />
           <Route path="*" element={<NotFound404 />} />
         </Routes> */}
-
-        <Header />
-        <Promo />
-        <AboutProject />
-        <Techs />
-        <AboutMe />
-        <Portfolio />
-        <Footer />
-
+        {/* <Main /> */}
+        <Movies />
       </div>
     // </CurrentUserContext.Provider>
   );
