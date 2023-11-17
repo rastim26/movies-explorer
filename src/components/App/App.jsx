@@ -2,22 +2,20 @@ import './App.css';
 import React from 'react';
 // import { Routes, Route, Navigate, useNavigate } from 'react-router-dom';
 
-// import AboutProject from '../Main/AboutProject/AboutProject';
-// import Movies from "../Movies/Movies";
-// import SavedMovies from "../SavedMovies/SavedMovies";
-// import Profile from "../account/Profile/Profile";
-// import Login from "../account/Login/Login";
-// import Register from "../account/Register/Register";
+import Main from '../pages/Main/Main';
+import Movies from '../pages/Movies/Movies';
+import SavedMovies from "../pages/SavedMovies/SavedMovies";
+import Profile from "../pages/Profile/Profile";
+import Register from "../pages/Register/Register";
+// import Login from "../pages/Login/Login";
 // import NotFound404 from '../404/404';
 
 
-// import Main from '../pages/Main/Main';
-import Movies from '../pages/Movies/Movies';
 
 function App() {
   return (
     // <CurrentUserContext.Provider value={currentUser} >
-      <div className="page__container">
+      <div className="app">
         {/* <Routes>
           <Route path="/" element={<AboutProject />} />
           <Route path="/movies" element={<Movies />} />
@@ -28,8 +26,12 @@ function App() {
           <Route path="/signup" element={<Register />} />
           <Route path="*" element={<NotFound404 />} />
         </Routes> */}
+
         {/* <Main /> */}
-        <Movies />
+        {/* <Movies /> */}
+        {/* <SavedMovies /> */}
+        {/* <Profile /> */}
+        {/* <Register /> */}
       </div>
     // </CurrentUserContext.Provider>
   );
