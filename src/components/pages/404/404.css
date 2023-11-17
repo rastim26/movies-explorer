@@ -1,0 +1,68 @@
+.not-found {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.not-found__title {
+  margin-top: 0;
+  margin-bottom: 0;
+  color: #000;
+  text-align: center;
+  font-family: Inter, Arial, sans-serif;
+  font-size: 140px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.not-found__message {
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-top: 5px;
+  color: #000;
+  text-align: center;
+  font-family: Inter, Arial, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.not-found__bottom-link {
+  position: fixed;
+  bottom: 60px;
+  left: auto;
+}
+
+.bottom-link {
+  color: #FF6838;
+  text-decoration: none;
+  margin-top: 16px;
+  text-align: center;
+  font-family: Inter, Arial, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+@media (max-width: 580px) {
+  .not-found__title {
+    font-size: 80px;
+  }
+
+  .not-found__message {
+    font-size: 12px;
+  }
+
+  .not-found__bottom-link {
+    bottom: 30px;
+  }
+
+  .bottom-link  {
+    font-size: 12px;
+  }
+}

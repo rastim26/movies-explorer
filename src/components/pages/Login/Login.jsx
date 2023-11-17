@@ -18,7 +18,7 @@ function Login() {
               <input type="password" class="form__field" />
               <p class="form__err-text">Что-то пошло не так...</p>
               <button class="form__submit">Войти</button>
-              <p class="form__proffer">Ещё не зарегистрированы? <a href="" class="form__link">Регистрация</a></p>
+              <p class="form__proffer">Ещё не зарегистрированы? <a href="" class="bottom-link">Регистрация</a></p>
             </form>
           </div>
         </section>

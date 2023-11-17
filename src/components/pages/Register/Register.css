@@ -108,9 +108,16 @@
   line-height: normal;
 }
 
-.form__link {
+.bottom-link {
   color: #FF6838;
   text-decoration: none;
+  margin-top: 16px;
+  text-align: center;
+  font-family: Inter, Arial, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
 
 @media (max-width: 580px) {
@@ -137,6 +144,10 @@
   }
 
   .form__proffer {
+    font-size: 12px;
+  }
+
+  .bottom-link  {
     font-size: 12px;
   }
 }

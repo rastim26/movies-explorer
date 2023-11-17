@@ -20,7 +20,7 @@ function Register() {
               <input type="password" class="form__field" />
               <p class="form__err-text">Что-то пошло не так...</p>
               <button class="form__submit">Зарегистрироваться</button>
-              <p class="form__proffer">Уже зарегистрированы? <a href="" class="form__link">Войти</a></p>
+              <p class="proffer">Уже зарегистрированы? <a href="" class="bottom-link">Войти</a></p>
             </form>
           </div>
         </section>
