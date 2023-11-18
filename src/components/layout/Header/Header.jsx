@@ -18,10 +18,16 @@ function Header() {
           <span className="burger__strip"></span>
         </button>
 
-        <div className="header__profile header__profile_active">
-           <Link to="/signup" className="header__profile-link">Регистрация</Link>
-           <Link to="/signin" className="header__profile-link header__profile-link_button">Войти</Link>
-        </div>
+        <nav className="header__profile header__profile_active">
+          <ul className="header__profile-list">
+            <li>
+              <Link to="/signup" className="header__profile-link">Регистрация</Link>
+            </li>
+            <li>
+              <Link to="/signin" className="header__profile-link header__profile-link_button">Войти</Link>
+            </li>
+          </ul>
+        </nav>
       </div>
     </header>
   );

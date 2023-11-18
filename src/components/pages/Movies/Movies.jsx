@@ -16,7 +16,7 @@ function Movies() {
         <AddMore />
       </main>
       <Footer />
-      <Preloader />
+      {/* <Preloader /> */}
     </div>
   );
 }
