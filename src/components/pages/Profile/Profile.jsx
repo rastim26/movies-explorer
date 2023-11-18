@@ -26,7 +26,7 @@ function Profile() {
 
           <ul className="profile__control-list">
             <li className="profile__control-item">
-              <button className="profile__control-link">Редактировать</button>
+              <button type="button" className="profile__control-link">Редактировать</button>
             </li>
             <li className="profile__control-item">
               <Link to="/" className="profile__control-link profile__control-link_danger">Выйти из аккаунта</Link>

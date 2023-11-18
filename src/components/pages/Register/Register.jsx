@@ -23,7 +23,7 @@ function Register() {
               <label for="user-password" className="form__label">Пароль</label>
               <input id="user-password" type="password" className="form__field" />
               <span className="form__err-text">Что-то пошло не так...</span>
-              <button className="form__submit">Зарегистрироваться</button>
+              <button type="submit" className="form__submit">Зарегистрироваться</button>
               <p className="form__proffer">Уже зарегистрированы? <Link to="/signin" className="bottom-link">Войти</Link></p>
             </form>
           </div>

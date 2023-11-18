@@ -14,7 +14,7 @@ function Header() {
 
         <Navigation />
 
-        <button className="burger .burger_open">
+        <button type="button" className="burger .burger_open">
           <span className="burger__strip"></span>
         </button>
 

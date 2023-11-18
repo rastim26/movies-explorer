@@ -21,7 +21,7 @@ function Login() {
               <label for="user-password" className="form__label">Пароль</label>
               <input id="user-password" type="password" className="form__field" />
               <span className="form__err-text">Что-то пошло не так...</span>
-              <button className="form__submit">Войти</button>
+              <button type="submit" className="form__submit">Войти</button>
               <p className="form__proffer">Ещё не зарегистрированы? <Link to="/signup" className="bottom-link">Регистрация</Link></p>
             </form>
           </div>
