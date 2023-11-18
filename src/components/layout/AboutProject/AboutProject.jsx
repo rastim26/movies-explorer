@@ -5,7 +5,6 @@ function AboutProject() {
     <section id="about-project" className="about">
       <div className="about__container">
         <h2 className="section-title">О проекте</h2>
-        <div className="section-line"></div>
 
         <div className="about__table">
           <div className="about__column">

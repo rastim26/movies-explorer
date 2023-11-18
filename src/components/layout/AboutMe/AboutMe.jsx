@@ -8,7 +8,6 @@ function AboutMe() {
     <section className="student">
       <div className="student__container">
         <h2 className="section-title">Студент</h2>
-        <div className="section-line"></div>
         <div className="student__content">
           <div className="student__info">
             <h3 className="student__name">Виталий</h3>

@@ -8,10 +8,7 @@
   font-weight: 400;
   line-height: normal;
   letter-spacing: -0.88px;
-}
-
-.section-line {
-  margin-top: 23px;
+  padding-bottom: 23px;
   border-bottom: 1px solid #000;
   width: 100%;
 }
@@ -124,12 +121,8 @@
 @media (max-width:580px) {
   .section-title {
     font-size: 18px;
+    padding-bottom: 28px;
   }
-
-  .section-line {
-    margin-top: 28px;
-  }
-
 
   .tech {
     padding: 70px 18px;

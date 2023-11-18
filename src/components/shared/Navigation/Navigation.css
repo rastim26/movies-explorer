@@ -88,6 +88,15 @@
     right: 0;
   }
 
+  .menu__overlay {
+    background-color: rgba(0,0,0,.3);
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+  }
+
   .menu_open {
     display: flex;
   }
