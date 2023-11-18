@@ -50,25 +50,6 @@
   max-width: 310px;
 }
 
-.hero__button {
-  color: #FFF;
-  text-decoration: none;
-  margin-top: auto;
-  font-family: Inter, Arial, sans-serif;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 1.33;
-  padding: 10px 20px;
-  border: 1px solid rgba(255, 255, 255, 0.6);
-  border-radius: 3px;
-  transition: opacity .2s ease-out;
-}
-
-.hero__button:hover {
-  opacity: 0.6;
-}
-
 .hero__image {
   height: 304px;
   width: 310px;

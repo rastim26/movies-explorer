@@ -93,6 +93,11 @@
   font-style: normal;
   font-weight: 500;
   line-height: normal;
+  transition: opacity .2s ease-out;
+}
+
+.form__submit:hover {
+  opacity: 0.6;
 }
 
 .form__proffer {
@@ -118,6 +123,11 @@
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+  transition: opacity .2s ease-out;
+}
+
+.bottom-link:hover {
+  opacity: 0.6;
 }
 
 @media (max-width: 580px) {

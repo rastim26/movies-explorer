@@ -84,6 +84,11 @@
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+  transition: opacity .2s ease-out;
+}
+
+.profile__control-link:hover {
+  opacity: 0.6;
 }
 
 .profile__control-link_danger {
