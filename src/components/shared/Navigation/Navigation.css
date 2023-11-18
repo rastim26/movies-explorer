@@ -24,9 +24,14 @@
   font-style: normal;
   font-weight: 400;
   line-height: 1.4;
+  transition: opacity .2s ease-out;
 }
 
-.menu__profile {
+.menu__link:hover {
+  opacity: 0.6;
+}
+
+.menu__link-profile {
   text-decoration: none;
   color: #000;
   font-family: Inter, Arial, sans-serif;
@@ -37,9 +42,14 @@
   display: flex;
   align-items: center;
   gap: 17px;
+  transition: opacity .2s ease-out;
 }
 
-.menu__profile::after {
+.menu__link-profile:hover {
+  opacity: 0.6;
+}
+
+.menu__link-profile::after {
   content: '';
   display: inline-block;
   width: 26px;
@@ -53,11 +63,11 @@
 }
 
 .menu__link_bg-dark, 
-.menu__profile_bg-dark {
+.menu__link-profile_bg-dark {
   color: #fff;
 }
 
-.menu__profile_bg-dark::after {
+.menu__link-profile_bg-dark::after {
   background-color: #2BE080;;
 }
 
@@ -94,11 +104,11 @@
     color: #000;
   }
 
-  .menu__profile_bg-dark {
+  .menu__link-profile_bg-dark {
     color: #000;
   }
 
-  .menu__profile_bg-dark::after {
+  .menu__link-profile_bg-dark::after {
     background-color: #F9F9F9;;
   }
 }

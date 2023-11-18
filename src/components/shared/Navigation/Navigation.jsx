@@ -12,7 +12,7 @@ function Navigation() {
           <Link to="/saved-movies" className="menu__link menu__link_bg-dark">Сохраненные фильмы</Link>
         </li>
       </ul>
-      <Link to="/profile" className="menu__profile menu__profile_bg-dark ">Аккаунт</Link>
+      <Link to="/profile" className="menu__link-profile menu__link-profile_bg-dark ">Аккаунт</Link>
     </nav>
   );
 }

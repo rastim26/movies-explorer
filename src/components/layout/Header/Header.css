@@ -16,6 +16,14 @@
   align-items: center;
 }
 
+.header__link {
+  transition: opacity .2s ease-out;
+}
+
+.header__link:hover {
+  opacity: 0.6;
+}
+
 .header__menu {
   margin-left: 45px;
 }
@@ -37,6 +45,11 @@
   align-items: center;
   cursor: pointer;
   position: relative;
+  transition: opacity .2s ease-out;
+}
+
+.burger:hover {
+  opacity: 0.6;
 }
 
 .burger__strip {
@@ -99,6 +112,11 @@
   font-style: normal;
   font-weight: 500;
   line-height: 16px;
+  transition: opacity .2s ease-out;
+}
+
+.header__profile-link:hover {
+  opacity: 0.6;
 }
 
 .header__profile-link_button {
