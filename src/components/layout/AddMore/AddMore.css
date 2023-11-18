@@ -23,6 +23,11 @@
   font-weight: 500;
   line-height: normal;
   cursor: pointer;
+  transition: opacity .2s ease-out;
+}
+
+.more__load:hover {
+  opacity: 0.6;
 }
 
 @media (max-width: 870px) {

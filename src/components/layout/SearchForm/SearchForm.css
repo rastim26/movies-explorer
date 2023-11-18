@@ -53,6 +53,11 @@
   width: 34px;
   height: 34px;
   cursor: pointer;
+  transition: opacity .2s ease-out;
+}
+
+.search__submit:hover {
+  opacity: 0.8;
 }
 
 .search__control {
@@ -78,6 +83,7 @@
   display: inline-block;
   visibility: visible;
   cursor: pointer;
+  transition: opacity .2 ease-out;
 }
 
 .search__checkbox:checked:before {
@@ -86,7 +92,13 @@
   width: 36px;
   height: 20px;
   display: inline-block;
+  transition: all .2 ease-out;
 }
+
+.search__checkbox:checked:hover {
+  opacity: 0.6;
+}
+
 
 .search__checkbox-label {
   color: #000;
@@ -95,6 +107,7 @@
   font-style: normal;
   font-weight: 400;
   line-height: 1.29; /* 128.571% */
+  cursor: pointer;
 }
 
 @media (max-width: 870px) {

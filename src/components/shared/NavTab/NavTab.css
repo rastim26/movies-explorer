@@ -28,8 +28,12 @@
   font-weight: 400;
   line-height: 1.6; /* 166.667% */
   letter-spacing: -1.2px;
+  transition: opacity .2s ease-out;
 }
 
+.portfolio__link:hover {
+  opacity: 0.6;
+}
 
 @media (max-width:870px) {
   .portfolio__link {

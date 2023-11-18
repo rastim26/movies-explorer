@@ -87,6 +87,11 @@
   font-style: normal;
   font-weight: 500;
   line-height: normal;
+  transition: opacity .2s ease-out;
+}
+
+.student__link:hover {
+  opacity: 0.6;
 }
 
 .student__photo {
