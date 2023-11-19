@@ -11,27 +11,22 @@ function Profile() {
         <section className="profile">
           <h1 className="page-title">Привет, Виталий!</h1>
 
-          <table className="profile__table table">
-            <tbody>
-              <tr>
-                <th className="table__th table__first-row">Имя</th>
-                <td className="table__td table__first-row">Виталий</td>
-              </tr>
-              <tr>
-                <th className="table__th table__second-row">E-mail</th>
-                <td className="table__td table__second-row">pochta@yandex.ru</td>
-              </tr>
-            </tbody>
-          </table>
+          <form className="profile__form">
+            <label className="profile__form-label">
+              Имя
+              <input id="user-name" className="profile__form-field" value="Виталий" />
+            </label>
 
-          <ul className="profile__control-list">
-            <li className="profile__control-item">
-              <button type="button" className="profile__control-link">Редактировать</button>
-            </li>
-            <li className="profile__control-item">
-              <Link to="/" className="profile__control-link profile__control-link_danger">Выйти из аккаунта</Link>
-            </li>
-          </ul>
+            <label className="profile__form-label">
+              E-mail
+              <input id="user-email" className="profile__form-field" value="pochta@yandex.ru" />
+            </label>
+
+            <div className="profile__form-control">
+              <button type="button" className="profile__form-btn">Редактировать</button>
+              <Link to="/" className="profile__form-btn profile__form-btn_danger">Выйти из аккаунта</Link>
+            </div>
+          </form>
         </section>
       </main>
     </div>
