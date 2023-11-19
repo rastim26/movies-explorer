@@ -1,8 +1,11 @@
 .header {
   background-color: #465dff;
   padding: 18px 70px;
+  height: 74px;
+  box-sizing: border-box;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .header_light {
@@ -32,66 +35,6 @@
   display: block;
 }
 
-.burger {
-  border: none;
-  background: none;
-  padding: 0;
-  margin-left: auto;
-  width: 44px;
-  height: 44px;
-  z-index: 2;
-  display: none;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  position: relative;
-  transition: opacity .2s ease-out;
-}
-
-.burger:hover {
-  opacity: 0.6;
-}
-
-.burger__strip {
-  height: 3px;
-  width: 28px;
-  background-color: #000;
-  position: absolute;
-  top: auto;
-  left: 15%;
-}
-
-.burger::before {
-  content: '';
-  height: 3px;
-  width: 28px;
-  background-color: #000;
-  position: absolute;
-  bottom: 10px;
-  left: 15%;
-}
-
-.burger::after {
-  content: '';
-  height: 3px;
-  width: 28px;
-  background-color: #000;
-  position: absolute;
-  top: 10px;
-  left: 15%;
-}
-
-.burger_open::before {
-  transform: translateY(-10px) rotate(45deg);
-}
-
-.burger_open::after {
-  transform: translateY(10px) rotate(-45deg);
-}
-
-.burger_open .burger__strip {
-  transform: scale(0);
-}
 
 .header__profile {
   margin-left: auto;
@@ -142,12 +85,7 @@
     margin-left: 0;
   }
 
-  .burger {
-    display: flex;
-    position: fixed;
-    top: 18px;
-    right: 30px;
-  }
+  
 }
 
 

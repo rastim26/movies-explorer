@@ -3,9 +3,13 @@ import { Link } from 'react-router-dom';
 
 function Navigation() {
   return (
-      <nav className="header__menu menu menu_open menu_bg-dark">
+    <>
+      <nav className="header__menu menu .menu_open menu_bg-dark">
         <ul className="menu__list">
-          <li className="menu__item">
+          <li className="menu__item menu__item_tab">
+            <Link to="/" className="menu__link menu__link_bg-dark">Главная</Link>
+          </li>
+          <li className="menu__item menu__item_active">
             <Link to="/movies" className="menu__link menu__link_bg-dark">Фильмы</Link>
           </li>
           <li className="menu__item">
@@ -16,6 +20,8 @@ function Navigation() {
           </li>
         </ul>
       </nav>
+      <button type="button" className="burger .burger_open"></button>
+    </>
   );
 }
 

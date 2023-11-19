@@ -17,10 +17,10 @@ function Header({isLight = false}) {
 
         {loggedIn 
         ?
-          (<Navigation />)
+          <Navigation />
          
         :
-          (<nav className="header__profile">
+          <nav className="header__profile">
             <ul className="header__profile-list">
               <li>
                 <Link to="/signup" className="header__profile-link">Регистрация</Link>
@@ -29,11 +29,8 @@ function Header({isLight = false}) {
                 <Link to="/signin" className="header__profile-link header__profile-link_button">Войти</Link>
               </li>
             </ul>
-          </nav>)
+          </nav>
         }
-          <button type="button" className="burger .burger_open">
-            <span className="burger__strip"></span>
-          </button>
 
       </div>
     </header>
