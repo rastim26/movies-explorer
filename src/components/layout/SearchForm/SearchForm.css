@@ -4,12 +4,12 @@
   justify-content: center;
 }
 
-.search__container {
+.search__form {
   max-width: 1140px;
   width: 100%;
 }
 
-.search__form {
+.search__finder {
   border-bottom: 1px solid #E8E8E8;
   padding-bottom: 15px;
   display: flex;
@@ -121,7 +121,7 @@
     padding: 92px 14px 50px;
   }
 
-  .search__form {
+  .search__finder {
     padding-bottom: 9px;
   }
 
