@@ -5,6 +5,7 @@ function Navigation() {
   return (
     <>
       <nav className="header__menu menu .menu_open menu_bg-dark">
+        <button className="menu__close"></button>
         <ul className="menu__list">
           <li className="menu__item menu__item_tab">
             <Link to="/" className="menu__link menu__link_bg-dark">Главная</Link>
