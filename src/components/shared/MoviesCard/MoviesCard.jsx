@@ -6,7 +6,7 @@ function MoviesCard() {
     <li className="cards__item">
       <div className="cards__panel">
         <div className="cards__info">
-          <p className="cards__name">33 слова о дизайне</p>
+          <h2 className="cards__name">33 слова о дизайне</h2>
           <p className="cards__length">1ч 47м</p>
         </div>
         <button type="button" className="cards__save"></button>

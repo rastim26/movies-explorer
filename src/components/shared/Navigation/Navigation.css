@@ -134,6 +134,12 @@
     position: absolute;
     top: 27px;
     right: 27px;
+    cursor: pointer;
+    transition: opacity .2s ease-out;
+  }
+
+  .menu__close:hover {
+    opacity: 0.6;
   }
 
   .menu__list {

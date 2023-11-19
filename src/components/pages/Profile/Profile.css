@@ -81,6 +81,7 @@
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+  cursor: pointer;
   transition: opacity .2s ease-out;
 }
 
