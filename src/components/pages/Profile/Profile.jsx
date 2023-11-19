@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 function Profile() {
   return (
     <div className="profile-page">
-      <Header />
+      <Header isLight="true" />
 
       <main className="content">
         <section className="profile">

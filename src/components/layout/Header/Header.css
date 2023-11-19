@@ -95,12 +95,8 @@
 
 .header__profile {
   margin-left: auto;
-  display: none;
-  align-items: center;
-}
-
-.header__profile_active {
   display: flex;
+  align-items: center;
 }
 
 .header__profile-list {

@@ -13,6 +13,10 @@ import NotFound404 from '../pages/404/404';
 
 
 function App() {
+  const [loggedIn, setLoggedIn] = React.useState(true);
+
+
+
   return (
     // <CurrentUserContext.Provider value={currentUser} >
       <div className="app">
