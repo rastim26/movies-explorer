@@ -9,7 +9,7 @@ import Preloader from '../../shared/Preloader/Preloader';
 function Movies() {
   return (
     <div className="movies-page">
-      <Header isLight="true" />
+      <Header />
       <main className="content">
         <SearchForm />
         <MoviesCardList />

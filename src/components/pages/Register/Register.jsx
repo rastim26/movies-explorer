@@ -16,11 +16,11 @@ function Register() {
 
             <h1 className="sign__page-title page-title">Добро пожаловать!</h1>
             <form className="sign__form form">
-              <label for="user-name" className="form__label">Имя</label>
+              <label htmlFor="user-name" className="form__label">Имя</label>
               <input id="user-name" type="text" className="form__field" />
-              <label for="user-email" className="form__label">E-mail</label>
+              <label htmlFor="user-email" className="form__label">E-mail</label>
               <input id="user-email" type="email" className="form__field" />
-              <label for="user-password" className="form__label">Пароль</label>
+              <label htmlFor="user-password" className="form__label">Пароль</label>
               <input id="user-password" type="password" className="form__field" />
               <span className="form__err-text">Что-то пошло не так...</span>
               <button type="submit" className="form__submit">Зарегистрироваться</button>

@@ -8,7 +8,7 @@ import AddMore from '../../layout/AddMore/AddMore';
 function SavedMovies() {
   return (
     <div className="saved-movies-page">
-      <Header isLight="true" />
+      <Header />
       <main className="content">
         <SearchForm />
         <MoviesCardList />

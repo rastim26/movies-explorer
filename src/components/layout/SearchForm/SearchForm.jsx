@@ -5,13 +5,13 @@ function SearchForm() {
     <section className="search">
       <form action="submit" className="search__form">
         <div className="search__finder">
-          <label for="search-input" className="search__input-label"></label>
+          <label htmlFor="search-input" className="search__input-label"></label>
           <input type="text" placeholder="Фильм" name="search-input" id="search-input" className="search__input" />
           <button type="submit" className="search__submit"></button>
         </div>
         <div className="search__control">
           <input type="checkbox" id="is-short-films" className="search__checkbox" />
-          <label for="is-short-films" className="search__checkbox-label">Короткометражки</label>
+          <label htmlFor="is-short-films" className="search__checkbox-label">Короткометражки</label>
         </div>
       </form>
     </section>

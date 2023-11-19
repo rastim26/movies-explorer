@@ -142,6 +142,10 @@
 
   .word-cloud {
     flex-wrap: wrap;
+    max-width: 178px;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: start;
   }
 
   .word-cloud__item {

@@ -10,7 +10,7 @@ import Footer from "../../layout/Footer/Footer";
 function Main() {
   return (
     <div className="main-page">
-      <Header isLight="false" />
+      <Header isLight={false} />
       <main className="content">
         <Promo />
         <AboutProject />

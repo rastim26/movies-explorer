@@ -4,12 +4,12 @@ import { Link } from 'react-router-dom';
 import Navigation from '../../shared/Navigation/Navigation';
 
 
-function Header({isLight = false}) {
+function Header({isLight = true}) {
 
   const loggedIn = true;
   console.log(isLight);
   return (
-    <header className={`header ${false && `header_light`}`}>
+    <header className={`header ${isLight && 'header_light'}`}>
       <div className="header__container">
         <Link to="/" className="header__link">
           <img src={logo} alt="logo" className="site-logo" />
@@ -17,7 +17,7 @@ function Header({isLight = false}) {
 
         {loggedIn 
         ?
-          <Navigation />
+          <Navigation isLight={isLight} />
          
         :
           <nav className="header__profile">
