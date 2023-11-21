@@ -1,7 +1,7 @@
 import './404.css';
 import { Link } from 'react-router-dom';
 
-function NotFound404() {
+function PageNotFound() {
   return (
     <div className="not-found-page">
       <main className="content">
@@ -18,4 +18,4 @@ function NotFound404() {
   );
 }
 
-export default NotFound404;
+export default PageNotFound;
