@@ -4,10 +4,11 @@ import { Link } from 'react-router-dom';
 import Navigation from '../../shared/Navigation/Navigation';
 
 
-function Header({isLight = true}) {
+function Header({isLight = true, loggedIn = true}) {
 
-  const loggedIn = true;
-  console.log(isLight);
+  // console.log('isLight: ', isLight);
+  console.log('loggedIn: ', loggedIn);
+
   return (
     <header className={`header ${isLight && 'header_light'}`}>
       <div className="header__container">

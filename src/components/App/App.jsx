@@ -15,17 +15,19 @@ import ProtectedRouteElement from '../ProtectedRoute';
 
 function App() {
   const [loggedIn, setLoggedIn] = React.useState(true);
+  console.log('loggedIn: ', loggedIn);
 
   return (
     // <CurrentUserContext.Provider value={currentUser} >
       <div className="app">
         <Routes>
-          <Route path="/" element={loggedIn ? <Navigate to="/main" replace /> : <Navigate to="/signin" replace />} />
-          <Route path="/main" element={<ProtectedRouteElement element={Main} loggedIn={loggedIn}/>} />
+          <Route path="/" element={<Navigate to="/main" replace />}/>
+
           <Route path="/movies" element={<ProtectedRouteElement element={Movies} loggedIn={loggedIn}/>} />
           <Route path="/saved-movies" element={<ProtectedRouteElement element={SavedMovies} loggedIn={loggedIn}/>} />
           <Route path="/profile" element={<ProtectedRouteElement element={Profile} loggedIn={loggedIn}/>} />
 
+          <Route path="/main" element={<Main loggedIn={loggedIn} />} />
           <Route path="/signin" element={<Login />} />
           <Route path="/signup" element={<Register />} />
           <Route path="*" element={<PageNotFound />} />

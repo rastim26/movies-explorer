@@ -7,10 +7,12 @@ import AboutMe from '../../layout/AboutMe/AboutMe';
 import Portfolio from '../../layout/Portfolio/Portfolio';
 import Footer from "../../layout/Footer/Footer";
 
-function Main() {
+function Main({loggedIn}) {
+  console.log('loggedIn: ', loggedIn);
+
   return (
     <div className="main-page">
-      <Header isLight={false} />
+      <Header isLight={false} loggedIn={loggedIn} />
       <main className="content">
         <Promo />
         <AboutProject />
