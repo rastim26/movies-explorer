@@ -8,10 +8,10 @@ class MoviesApi {
   }
 
   getCards = () => {
-    return fetch(`${this._baseUrl}/cards`, {
+    return fetch(`${this._baseUrl}/beatfilm-movies`, {
       method: 'GET',
       headers: {
-        authorization: `Bearer ${localStorage.getItem("jwt")}`,
+        // authorization: `Bearer ${localStorage.getItem("jwt")}`,
         'Content-Type': 'application/json'
       },
     })
@@ -20,6 +20,6 @@ class MoviesApi {
 
 }
 
-export const api = new MoviesApi({
-  baseUrl: 'https://api.nomoreparties.co/beatfilm-movies',
+export const moviesApi = new MoviesApi({
+  baseUrl: 'https://api.nomoreparties.co',
 });

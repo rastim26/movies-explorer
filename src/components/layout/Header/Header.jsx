@@ -6,9 +6,6 @@ import Navigation from '../../shared/Navigation/Navigation';
 
 function Header({isLight = true, loggedIn = true}) {
 
-  // console.log('isLight: ', isLight);
-  console.log('loggedIn: ', loggedIn);
-
   return (
     <header className={`header ${isLight && 'header_light'}`}>
       <div className="header__container">

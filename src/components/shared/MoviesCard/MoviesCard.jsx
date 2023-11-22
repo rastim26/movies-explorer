@@ -1,17 +1,26 @@
-import preview from '../../../images/previews/preview-1.jpeg';
+import { Link } from 'react-router-dom';
 import './MoviesCard.css';
 
-function MoviesCard() {
+function MoviesCard({card}) {
+
+  const {
+    country, created_at, description, director, duration,
+    id, image, nameEN, nameRU,
+    trailerLink, updates_at, year,
+  } = card;
+
   return (
     <li className="cards__item">
       <div className="cards__panel">
         <div className="cards__info">
-          <h2 className="cards__name">33 слова о дизайне</h2>
-          <p className="cards__length">1ч 47м</p>
+          <h2 className="cards__name">{nameRU}</h2>
+          <p className="cards__length">{duration}</p>
         </div>
         <button type="button" className="cards__save"></button>
       </div>
-      <img src={preview} alt="Превью" className="cards__preview" />
+      <Link to={trailerLink} className="cards__preview-link">
+        <img src={'https://api.nomoreparties.co/' + image.url} alt="Превью" className="cards__preview" />
+      </Link>
     </li>
   );
 }

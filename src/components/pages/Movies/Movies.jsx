@@ -6,13 +6,13 @@ import MoviesCardList from '../../layout/MoviesCardList/MoviesCardList';
 import AddMore from '../../layout/AddMore/AddMore';
 import Preloader from '../../shared/Preloader/Preloader';
 
-function Movies() {
+function Movies({cards}) {
   return (
     <div className="movies-page">
       <Header />
       <main className="content">
         <SearchForm />
-        <MoviesCardList />
+        <MoviesCardList cards={cards} />
         <AddMore />
       </main>
       <Footer />
