@@ -1,8 +1,14 @@
 import './SearchForm.css';
 
-function SearchForm() {
+function SearchForm({loadCards}) {
+
+  function hadleSubmit(e) {
+    e.preventDefault();
+    loadCards();
+  }
+
   return (
-    <section className="search">
+    <section onSubmit={hadleSubmit} className="search">
       <form action="submit" className="search__form">
         <div className="search__finder">
           <label htmlFor="search-input" className="search__input-label"></label>

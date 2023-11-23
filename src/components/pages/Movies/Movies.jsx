@@ -6,17 +6,17 @@ import MoviesCardList from '../../layout/MoviesCardList/MoviesCardList';
 import AddMore from '../../layout/AddMore/AddMore';
 import Preloader from '../../shared/Preloader/Preloader';
 
-function Movies({cards}) {
+function Movies({cards, loadCards, loadMore, isPreloaderOpen}) {
   return (
     <div className="movies-page">
       <Header />
       <main className="content">
-        <SearchForm />
+        <SearchForm loadCards={loadCards} />
         <MoviesCardList cards={cards} />
-        <AddMore />
+        <AddMore loadMore={loadMore}  />
       </main>
       <Footer />
-      {/* <Preloader /> */}
+      <Preloader isOpen={isPreloaderOpen} />
     </div>
   );
 }

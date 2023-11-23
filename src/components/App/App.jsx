@@ -19,30 +19,70 @@ import ProtectedRouteElement from '../ProtectedRoute';
 function App() {
   const [loggedIn, setLoggedIn] = React.useState(true);
   const [currentUser, setCurrentUser] = React.useState({});
-  const [cards, setCards] = React.useState([]);
+  const [restCards, setRestCards] = React.useState([]);
+  const [renderedCards, setRenderedCards] = React.useState([]);
+  const [isPreloaderOpen, setPreloaderOpen] = React.useState(false);
+  const [viewportWidth, setViewportWidth] = React.useState();
 
-
-  // React.useEffect(() => {
-  //   if (loggedIn) {
-  //     Promise.all([moviesApi.getCards()])
-  //     .then(([moviesData]) => {
-  //       setCards(moviesData);
-  //     })
-  //     .catch(err => {
-  //       console.log(err);
-  //     });
-  //   }
-  // }, [loggedIn]);
 
   React.useEffect(() => {
+    setWidth();
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+  
+  function setWidth() {
+    const getWindowWidth = () => window.innerWidth;
+    const width = getWindowWidth();
+    setViewportWidth(width);
+  }  
+
+  function handleResize() {
+    setTimeout(setWidth, 1000);
+  }
+
+  function loadCards() {
+    setPreloaderOpen(true);
+
     moviesApi.getCards()
     .then((moviesData) => {
-      setCards(moviesData);
+      let cardList;
+      switch (true) {
+        case viewportWidth > 870:
+          cardList = moviesData.splice(0, 12);
+          break;
+          case viewportWidth > 580 && viewportWidth <= 870:
+            cardList = moviesData.splice(0, 8);
+            break;
+            default: 
+            cardList = moviesData.splice(0, 5);
+          }
+          setRenderedCards(cardList);
+          setRestCards(moviesData);
+      setPreloaderOpen(false);
     })
     .catch(err => {
       console.log(err);
     });
-  }, []);
+  }
+
+  function loadMore() {
+    let cardList;
+    switch (true) {
+      case viewportWidth > 870:
+        cardList = restCards.splice(0, 3);
+          break;
+      case viewportWidth > 580 && viewportWidth <= 870:
+        cardList = restCards.splice(0, 2);
+          break;
+      default: 
+        cardList = restCards.splice(0, 2);
+    }
+
+    const cardListSum = renderedCards.concat(cardList);
+    setRenderedCards(cardListSum);
+  }
 
   return (
     // <CurrentUserContext.Provider value={currentUser} >
@@ -50,16 +90,30 @@ function App() {
         <Routes>
           <Route path="/" element={<Navigate to="/main" replace />}/>
 
-          <Route path="/movies" element={<ProtectedRouteElement element={Movies} cards={cards} loggedIn={loggedIn}/>} />
-          <Route path="/saved-movies" element={<ProtectedRouteElement element={SavedMovies} loggedIn={loggedIn}/>} />
-          <Route path="/profile" element={<ProtectedRouteElement element={Profile} loggedIn={loggedIn}/>} />
+          <Route path="/movies" element={<ProtectedRouteElement
+              element={Movies}
+              cards={renderedCards}
+              loggedIn={loggedIn}
+              loadCards={loadCards}
+              loadMore={loadMore}
+              isPreloaderOpen={isPreloaderOpen}
+          />} />
+
+          <Route path="/saved-movies" element={<ProtectedRouteElement
+              element={SavedMovies}
+              loggedIn={loggedIn}
+          />} />
+
+          <Route path="/profile" element={<ProtectedRouteElement
+              element={Profile}
+              loggedIn={loggedIn}
+          />} />
 
           <Route path="/main" element={<Main loggedIn={loggedIn} />} />
           <Route path="/signin" element={<Login />} />
           <Route path="/signup" element={<Register />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
-
       </div>
     // </CurrentUserContext.Provider>
   );
