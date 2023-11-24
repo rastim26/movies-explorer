@@ -56,6 +56,10 @@
   transition: background-color .2s ease-out;
 }
 
+.cards__save_active {
+  background-image: url(../../../images/icons/flag-on.svg);
+}
+
 .cards__save:hover {
   background-color: #eeeeee;
 }

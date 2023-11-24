@@ -1,7 +1,7 @@
 import './App.css';
 import React from 'react';
 import { Routes, Route, Navigate, useNavigate } from 'react-router-dom';
-// import { CurrentUserContext } from '../contexts/CurrentUserContext';
+import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import { moviesApi } from "../../utils/MoviesApi";
 import { mainApi } from "../../utils/MainApi";
 
@@ -24,7 +24,7 @@ function App() {
   const [isPreloaderOpen, setPreloaderOpen] = React.useState(false);
   const [viewportWidth, setViewportWidth] = React.useState();
 
-
+  
   React.useEffect(() => {
     setWidth();
 
@@ -85,7 +85,7 @@ function App() {
   }
 
   return (
-    // <CurrentUserContext.Provider value={currentUser} >
+    <CurrentUserContext.Provider value={currentUser} >
       <div className="app">
         <Routes>
           <Route path="/" element={<Navigate to="/main" replace />}/>
@@ -115,7 +115,7 @@ function App() {
           <Route path="*" element={<PageNotFound />} />
         </Routes>
       </div>
-    // </CurrentUserContext.Provider>
+    </CurrentUserContext.Provider>
   );
 }
 
