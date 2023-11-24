@@ -9,12 +9,15 @@ function MoviesCard({card}) {
     trailerLink, updates_at, year,
   } = card;
 
+  const durationHours = Math.floor(duration / 60);
+  const durationMinutes = duration % 60;
+
   return (
     <li className="cards__item">
       <div className="cards__panel">
         <div className="cards__info">
           <h2 className="cards__name">{nameRU}</h2>
-          <p className="cards__length">{duration}</p>
+          <p className="cards__length">{durationHours}ч {durationMinutes}м</p>
         </div>
         <button type="button" className="cards__save"></button>
       </div>
