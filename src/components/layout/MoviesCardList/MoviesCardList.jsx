@@ -7,7 +7,7 @@ function MoviesCardList({cards}) {
       <div className="cards__container">
         <ul className="cards__list">
           {cards.map((card) => (
-            <MoviesCard card={card} key={card.id}/>
+            <MoviesCard card={card} key={card.id} />
           ))}
         </ul>
       </div>

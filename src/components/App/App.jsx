@@ -23,6 +23,7 @@ function App() {
   const [renderedCards, setRenderedCards] = React.useState([]);
   const [isPreloaderOpen, setPreloaderOpen] = React.useState(false);
   const [viewportWidth, setViewportWidth] = React.useState();
+  const [message, setMessage] = React.useState('');
 
   
   React.useEffect(() => {
@@ -47,24 +48,32 @@ function App() {
 
     moviesApi.getCards()
     .then((moviesData) => {
-      let cardList;
-      switch (true) {
-        case viewportWidth > 870:
-          cardList = moviesData.splice(0, 12);
-          break;
+      if (moviesData.length) {
+        let cardList;
+        switch (true) {
+          case viewportWidth > 870:
+            cardList = moviesData.splice(0, 12);
+            break;
           case viewportWidth > 580 && viewportWidth <= 870:
             cardList = moviesData.splice(0, 8);
             break;
             default: 
             cardList = moviesData.splice(0, 5);
           }
-          setRenderedCards(cardList);
-          setRestCards(moviesData);
-      setPreloaderOpen(false);
+        setRenderedCards(cardList);
+        setRestCards(moviesData);
+      } else {
+        setMessage('Ничего не найдено');
+      }
+
     })
     .catch(err => {
       console.log(err);
-    });
+      setMessage("Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз.");
+    })
+    .finally(() => {
+      setPreloaderOpen(false);
+    })
   }
 
   function loadMore() {
@@ -97,11 +106,13 @@ function App() {
               loadCards={loadCards}
               loadMore={loadMore}
               isPreloaderOpen={isPreloaderOpen}
+              message={message}
           />} />
 
           <Route path="/saved-movies" element={<ProtectedRouteElement
               element={SavedMovies}
               loggedIn={loggedIn}
+              message={message}
           />} />
 
           <Route path="/profile" element={<ProtectedRouteElement

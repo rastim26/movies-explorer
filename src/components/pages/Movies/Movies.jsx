@@ -1,4 +1,4 @@
-// import './Movies.css';
+import './Movies.css';
 import Header from '../../layout/Header/Header';
 import Footer from '../../layout/Footer/Footer';
 import SearchForm from '../../layout/SearchForm/SearchForm';
@@ -6,14 +6,18 @@ import MoviesCardList from '../../layout/MoviesCardList/MoviesCardList';
 import AddMore from '../../layout/AddMore/AddMore';
 import Preloader from '../../shared/Preloader/Preloader';
 
-function Movies({cards, loadCards, loadMore, isPreloaderOpen}) {
+function Movies({cards, loadCards, loadMore, isPreloaderOpen, message}) {
   return (
     <div className="movies-page">
       <Header />
       <main className="content">
         <SearchForm loadCards={loadCards} />
-        <MoviesCardList cards={cards} />
-        <AddMore loadMore={loadMore}  />
+        {cards.length
+        ? <>
+            <MoviesCardList cards={cards} />
+            <AddMore loadMore={loadMore}  />
+          </>
+        : <p className="message-text">{message}</p> }
       </main>
       <Footer />
       <Preloader isOpen={isPreloaderOpen} />
