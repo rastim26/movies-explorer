@@ -47,33 +47,41 @@ function App() {
     setPreloaderOpen(true);
 
     moviesApi.getCards()
-    .then((moviesData) => {
-      if (moviesData.length) {
-        let cardList;
-        switch (true) {
-          case viewportWidth > 870:
-            cardList = moviesData.splice(0, 12);
-            break;
-          case viewportWidth > 580 && viewportWidth <= 870:
-            cardList = moviesData.splice(0, 8);
-            break;
-            default: 
-            cardList = moviesData.splice(0, 5);
-          }
-        setRenderedCards(cardList);
-        setRestCards(moviesData);
+    .then((cards) => {
+      if (cards.length) {
+        localStorage.setItem("foundItems", JSON.stringify(cards));
+        localStorage.setItem("queryText", '');
+        localStorage.setItem("isShort", '');
       } else {
         setMessage('Ничего не найдено');
       }
-
     })
+    .then(() => renderCards())
     .catch(err => {
       console.log(err);
       setMessage("Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз.");
     })
     .finally(() => {
       setPreloaderOpen(false);
-    })
+    });
+  }
+
+  function renderCards() {
+    const cards = JSON.parse(localStorage.getItem("foundItems"));
+    let cardList;
+    switch (true) {
+      case viewportWidth > 870:
+        cardList = cards.splice(0, 12);
+        break;
+      case viewportWidth > 580 && viewportWidth <= 870:
+        cardList = cards.splice(0, 8);
+        break;
+        default: 
+        cardList = cards.splice(0, 5);
+      }
+
+    setRenderedCards(cardList);
+    setRestCards(cards);
   }
 
   function loadMore() {
