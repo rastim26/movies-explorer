@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import Navigation from '../../shared/Navigation/Navigation';
 
 
-function Header({isLight = true, loggedIn = true}) {
+function Header({isLight = true, loggedIn = true, activeLink = null}) {
 
   return (
     <header className={`header ${isLight && 'header_light'}`}>
@@ -15,7 +15,7 @@ function Header({isLight = true, loggedIn = true}) {
 
         {loggedIn 
         ?
-          <Navigation isLight={isLight} />
+          <Navigation isLight={isLight} activeLink={activeLink} />
          
         :
           <nav className="header__profile">

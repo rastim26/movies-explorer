@@ -86,6 +86,10 @@
   background-color: #2BE080;;
 }
 
+.menu__link_active {
+  font-weight: 600;
+}
+
 .burger {
   border: none;
   background-color: unset;

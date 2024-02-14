@@ -111,7 +111,11 @@ function App() {
 
           <Route path="/saved-movies" element={<ProtectedRouteElement
               element={SavedMovies}
+              cards={renderedCards}
               loggedIn={loggedIn}
+              loadCards={loadCards}
+              loadMore={loadMore}
+              isPreloaderOpen={isPreloaderOpen}
               message={message}
           />} />
 

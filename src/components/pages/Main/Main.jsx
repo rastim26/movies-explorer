@@ -12,7 +12,7 @@ function Main({loggedIn}) {
 
   return (
     <div className="main-page">
-      <Header isLight={false} loggedIn={loggedIn} />
+      <Header isLight={false} loggedIn={loggedIn} activeLink="main" />
       <main className="content">
         <Promo />
         <AboutProject />

@@ -9,7 +9,7 @@ import Preloader from '../../shared/Preloader/Preloader';
 function Movies({cards, loadCards, loadMore, isPreloaderOpen, message}) {
   return (
     <div className="movies-page">
-      <Header />
+      <Header activeLink='movies' />
       <main className="content">
         <SearchForm loadCards={loadCards} />
         {cards.length

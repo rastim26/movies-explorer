@@ -4,17 +4,23 @@ import Footer from '../../layout/Footer/Footer';
 import SearchForm from '../../layout/SearchForm/SearchForm';
 import MoviesCardList from '../../layout/MoviesCardList/MoviesCardList';
 import AddMore from '../../layout/AddMore/AddMore';
+import Preloader from '../../shared/Preloader/Preloader';
 
-function SavedMovies() {
+function SavedMovies({cards, loadCards, loadMore, isPreloaderOpen, message}) {
   return (
     <div className="saved-movies-page">
-      <Header />
+      <Header activeLink='saved-movies' />
       <main className="content">
-        <SearchForm />
-        <MoviesCardList />
-        <AddMore />
+        <SearchForm loadCards={loadCards} />
+        {cards.length
+        ? <>
+            <MoviesCardList cards={cards} />
+            <AddMore loadMore={loadMore}  />
+          </>
+        : <p className="message-text">{message}</p> }
       </main>
       <Footer />
+      <Preloader isOpen={isPreloaderOpen} />
     </div>
   );
 }
