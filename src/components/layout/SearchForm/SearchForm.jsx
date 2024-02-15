@@ -13,15 +13,12 @@ function SearchForm({loadCards}) {
     isShort && setCheckboxValue(JSON.parse(isShort));
   }, [])
 
-  // const checkboxValue = document.querySelector('#is-short-films').checked;
-  
   function handleSearchInputChange(e) {
     setSearchInputValue(e.target.value);
   }
 
   function handleChangeCheckbox(e) {
     setCheckboxValue(e.target.checked);
-    localStorage.clear();
   }
 
   function hadleSubmit(e) {
