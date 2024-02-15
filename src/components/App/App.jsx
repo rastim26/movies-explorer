@@ -44,14 +44,14 @@ function App() {
     setTimeout(findWidth, 1000);
   }
 
-  function loadCards() {
+  function loadCards({queryText, isShort}) {
     setPreloaderOpen(true);
     moviesApi.getCards()
     .then((cards) => {
       if (cards.length) {
         localStorage.setItem("foundItems", JSON.stringify(cards));
-        localStorage.setItem("queryText", '');
-        localStorage.setItem("isShort", '');
+        localStorage.setItem("queryText", queryText);
+        localStorage.setItem("isShort", JSON.stringify(isShort));
       } else {
         setMessage('Ничего не найдено');
       }
@@ -68,6 +68,7 @@ function App() {
 
   function renderCards(viewportWidth) {
     const cards = JSON.parse(localStorage.getItem("foundItems"));
+    if (!cards) {setMessage('Ничего не найдено'); return}
     let cardList;
     switch (true) {
       case viewportWidth > 870:
