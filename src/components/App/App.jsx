@@ -27,25 +27,25 @@ function App() {
 
   
   React.useEffect(() => {
-    setWidth();
+    const width = findWidth();
+    renderCards(width);
 
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
   
-  function setWidth() {
-    const getWindowWidth = () => window.innerWidth;
-    const width = getWindowWidth();
+  function findWidth() {
+    const width = window.innerWidth;
     setViewportWidth(width);
+    return width;
   }  
 
   function handleResize() {
-    setTimeout(setWidth, 1000);
+    setTimeout(findWidth, 1000);
   }
 
   function loadCards() {
     setPreloaderOpen(true);
-
     moviesApi.getCards()
     .then((cards) => {
       if (cards.length) {
@@ -56,7 +56,7 @@ function App() {
         setMessage('Ничего не найдено');
       }
     })
-    .then(() => renderCards())
+    .then(() => renderCards(viewportWidth))
     .catch(err => {
       console.log(err);
       setMessage("Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз.");
@@ -66,7 +66,7 @@ function App() {
     });
   }
 
-  function renderCards() {
+  function renderCards(viewportWidth) {
     const cards = JSON.parse(localStorage.getItem("foundItems"));
     let cardList;
     switch (true) {
@@ -76,7 +76,7 @@ function App() {
       case viewportWidth > 580 && viewportWidth <= 870:
         cardList = cards.splice(0, 8);
         break;
-        default: 
+      default: 
         cardList = cards.splice(0, 5);
       }
 
