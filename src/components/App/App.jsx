@@ -3,7 +3,7 @@ import React from 'react';
 import { Routes, Route, Navigate, useNavigate } from 'react-router-dom';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import { moviesApi } from "../../utils/MoviesApi";
-import { mainApi } from "../../utils/MainApi";
+import { api } from "../../utils/MainApi";
 
 import Main from '../pages/Main/Main';
 import Movies from '../pages/Movies/Movies';
@@ -21,6 +21,7 @@ function App() {
   const [currentUser, setCurrentUser] = React.useState({});
   const [restCards, setRestCards] = React.useState([]);
   const [renderedCards, setRenderedCards] = React.useState([]);
+  const [savedCards, setSavedCards] = React.useState([]);
   const [isPreloaderOpen, setPreloaderOpen] = React.useState(false);
   const [viewportWidth, setViewportWidth] = React.useState();
   const [message, setMessage] = React.useState('');
@@ -102,6 +103,21 @@ function App() {
     setRenderedCards(cardListSum);
   }
 
+  function handleSaveClick(card) {
+    
+    const isSaved = savedCards.some(i => i.id === card.id);
+    (!isSaved ? api.createMovie(card) : api.deleteMovie(card))
+
+    // .then((newCard) => {
+    //   let cards = JSON.parse(localStorage.getItem("foundItems"));
+    //   cards = cards.map((c) => c.id === card.id ? newCard : c);
+    //   localStorage.setItem("foundItems", JSON.stringify(cards));
+    // })
+    // .catch(err => {
+    //   console.log(err);
+    // });
+  }
+
   return (
     <CurrentUserContext.Provider value={currentUser} >
       <div className="app">
@@ -116,6 +132,7 @@ function App() {
               loadMore={loadMore}
               isPreloaderOpen={isPreloaderOpen}
               message={message}
+              onSaveClick={handleSaveClick}
           />} />
 
           <Route path="/saved-movies" element={<ProtectedRouteElement
@@ -126,6 +143,7 @@ function App() {
               loadMore={loadMore}
               isPreloaderOpen={isPreloaderOpen}
               message={message}
+              onSaveClick={handleSaveClick}
           />} />
 
           <Route path="/profile" element={<ProtectedRouteElement

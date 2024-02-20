@@ -10,7 +10,6 @@ function MoviesCard({card, onSaveClick}) {
   const currentUser = React.useContext(CurrentUserContext);
   // const isSaved = card.likes.some(i => i === currentUser._id); // Определяем, есть ли у карточки лайк, поставленный текущим пользователем
 
-
   const {
     country, created_at, description, director, duration,
     id, image, nameEN, nameRU,
@@ -18,7 +17,7 @@ function MoviesCard({card, onSaveClick}) {
   } = card;
 
   const handleSaveClick = () => {
-    // onSaveClick(card);
+    onSaveClick(card);
     setSaved(!isSaved);
   }
 
