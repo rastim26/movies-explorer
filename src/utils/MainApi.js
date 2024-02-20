@@ -7,11 +7,22 @@ class MainApi {
     return res.ok ? res.json() : Promise.reject(`Ошибка api: ${res.status}`);
   }
 
+  getSavedMovies = () => {
+    return fetch(`${this._baseUrl}/movies`, {
+      method: 'GET',
+      headers: {
+        // authorization: `Bearer ${localStorage.getItem("jwt")}`,
+        'Content-Type': 'application/json'
+      },
+    })
+      .then(this._checkResponse)
+  }
+
   createMovie = (movie) => {
-    return fetch(`${this._baseUrl}/movies/`, {
+    return fetch(`${this._baseUrl}/movies`, {
       method: 'POST',
       headers: {
-        authorization: `Bearer ${localStorage.getItem("jwt")}`,
+        // authorization: `Bearer ${localStorage.getItem("jwt")}`,
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(movie),
@@ -23,7 +34,7 @@ class MainApi {
     return fetch(`${this._baseUrl}/movies/${movie.id}`, {
       method: 'DELETE',
       headers: {
-        authorization: `Bearer ${localStorage.getItem("jwt")}`,
+        // authorization: `Bearer ${localStorage.getItem("jwt")}`,
         'Content-Type': 'application/json'
       }
     })

@@ -67,6 +67,24 @@ function App() {
     });
   }
 
+  function loadSavedCards() {
+    api.getSavedMovies()
+    .then((cards) => {
+      if (cards.length) {
+        setSavedCards(cards);
+      } else {
+        setMessage('Ничего не найдено');
+      }
+    })
+    .catch(err => {
+      console.log(err);
+      setMessage("Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз.");
+    })
+    .finally(() => {
+      setPreloaderOpen(false);
+    });
+  }
+
   function renderCards(viewportWidth) {
     const cards = JSON.parse(localStorage.getItem("foundItems"));
     if (!cards) {setMessage('Ничего не найдено'); return}
@@ -104,18 +122,9 @@ function App() {
   }
 
   function handleSaveClick(card) {
-    
-    const isSaved = savedCards.some(i => i.id === card.id);
-    (!isSaved ? api.createMovie(card) : api.deleteMovie(card))
-
-    // .then((newCard) => {
-    //   let cards = JSON.parse(localStorage.getItem("foundItems"));
-    //   cards = cards.map((c) => c.id === card.id ? newCard : c);
-    //   localStorage.setItem("foundItems", JSON.stringify(cards));
-    // })
-    // .catch(err => {
-    //   console.log(err);
-    // });
+    // const isSaved = savedCards.some(i => i.id === card.id);
+    // (!isSaved ? api.createMovie(card) : api.deleteMovie(card))
+    api.createMovie(card);
   }
 
   return (
@@ -137,9 +146,9 @@ function App() {
 
           <Route path="/saved-movies" element={<ProtectedRouteElement
               element={SavedMovies}
-              cards={renderedCards}
+              cards={savedCards}
               loggedIn={loggedIn}
-              loadCards={loadCards}
+              loadCards={loadSavedCards}
               loadMore={loadMore}
               isPreloaderOpen={isPreloaderOpen}
               message={message}
