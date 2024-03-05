@@ -17,7 +17,7 @@ import ProtectedRouteElement from '../ProtectedRoute';
 
 
 function App() {
-  const [loggedIn, setLoggedIn] = React.useState(true);
+  const [loggedIn, setLoggedIn] = React.useState(false);
   const [currentUser, setCurrentUser] = React.useState({});
   const [restCards, setRestCards] = React.useState([]);
   const [renderedCards, setRenderedCards] = React.useState([]);

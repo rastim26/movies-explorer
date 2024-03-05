@@ -29,107 +29,7 @@
   margin-top: 40px;
 }
 
-.form {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
 
-.form__label {
-  margin-top: 20px;
-  color: #A0A0A0;
-  font-family: Inter, Arial, sans-serif;
-  font-size: 10px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-}
-
-.form__label:first-child {
-  margin-top: 0;
-}
-
-.form__field {
-  margin-top: 10px;
-  border: none;
-  padding: 15px;
-  border-radius: 8px;
-  background: #F9F9F9;
-  width: 100%;
-  box-sizing: border-box;
-  color: #000;
-  font-family: Inter, Arial, sans-serif;
-  font-size: 13px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-}
-
-.form__err-text {
-  margin-top: 10px;
-  display: block;
-  color: #EE3465;
-  font-family: Inter, Arial, sans-serif;
-  font-size: 10px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  /* visibility: hidden; */
-}
-
-.form__submit {
-  margin-top: auto;
-  width: 100%;
-  box-sizing: border-box;
-  border: none;
-  padding-top: 13px;
-  padding-bottom: 15px;
-  border-radius: 3px;
-  background: #FF6838;
-  color: #FFF;
-  text-align: center;
-  font-family: Inter, Arial, sans-serif;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
-  cursor: pointer;
-  transition: opacity .2s ease-out;
-}
-
-.form__submit:hover {
-  opacity: 0.6;
-}
-
-.form__proffer {
-  margin-top: 0;
-  margin-bottom: 0;
-  margin-top: 16px;
-  color: #A0A0A0;
-  text-align: center;
-  font-family: Inter, Arial, sans-serif;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-}
-
-.bottom-link {
-  color: #FF6838;
-  text-decoration: none;
-  margin-top: 16px;
-  text-align: center;
-  font-family: Inter, Arial, sans-serif;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  transition: opacity .2s ease-out;
-}
-
-.bottom-link:hover {
-  opacity: 0.6;
-}
 
 @media (max-width: 580px) {
   .sign {
@@ -152,13 +52,5 @@
 
   .sign__form {
     margin-top: 80px;
-  }
-
-  .form__proffer {
-    font-size: 12px;
-  }
-
-  .bottom-link  {
-    font-size: 12px;
   }
 }
