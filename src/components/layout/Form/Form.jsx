@@ -54,6 +54,7 @@ function Form({hasName, submitText, profferText, profferLink, profferLinkLabel})
       />
       <span className="form__err-text">{errors.password}</span>
       
+      <span className="form__err-text">Что-то пошло не так...</span>
       <button type="submit" className={`form__submit ${!isValid && 'form__submit_disabled'}`} disabled={!isValid} >{submitText}</button>
       <p className="form__proffer">
         {profferText} <Link to={'/' + profferLink} className="bottom-link">{profferLinkLabel}</Link>

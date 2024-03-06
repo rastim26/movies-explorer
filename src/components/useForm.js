@@ -14,11 +14,14 @@ export function useForm() {
     setValues({...values, [name]: value});
     setErrors({...errors, [name]: target.validationMessage });
     setIsValid(target.closest("form").checkValidity());
-    
     if (name === 'name') {
-      if (!validRex.test(value)) setIsValid(false);
+      if (value && !validRex.test(value)) {
+        setIsValid(false);
+        setErrors({...errors, [name]: "Имя может содержать только буквы, цифры, дефис и пробел!" });
+      }
       console.log(value, validRex.test(value), isValid);
     }
+    
 
   };
 
