@@ -54,7 +54,7 @@
   padding-top: 13px;
   padding-bottom: 15px;
   border-radius: 3px;
-  background: #FF6838;
+  background-color: #FF6838;
   color: #FFF;
   text-align: center;
   font-family: Inter, Arial, sans-serif;
@@ -68,6 +68,11 @@
 
 .form__submit:hover {
   opacity: 0.6;
+}
+
+.form__submit_disabled {
+  background-color: #1010104d;
+  pointer-events: none;
 }
 
 .form__proffer {
