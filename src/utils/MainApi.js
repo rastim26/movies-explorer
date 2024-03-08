@@ -41,8 +41,40 @@ class MainApi {
       .then(this._checkResponse)
   }
 
+  register = (name, email, password) => {
+    return fetch(`${this._baseUrl}/signup`, {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({name, email, password})
+    })
+    .then(this._checkResponse)
+  };
+  
+  authorize = (email, password) => {
+    return fetch(`${this._baseUrl}/signin`, {
+      method: 'POST',
+      // credentials: 'include', // теперь куки посылаются вместе с запросом
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({email, password})
+    })
+    .then(this._checkResponse)
+    .then(({token}) => {
+      if (token){
+        localStorage.setItem('jwt', token);
+        return token;
+      }
+    })
+  }; 
+
 }
 
 export const api = new MainApi({
-  baseUrl: 'https://api.rastim.nomoredomainsrocks.ru/',
+  // baseUrl: 'https://api.rastim.nomoredomainsrocks.ru/',
+  baseUrl: 'http://localhost:3000',
 });

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import Form from '../../layout/Form/Form';
 
 
-function Login() {
+function Login({handleLogin}) {
   return (
     <div className="login-page">
       <main className="content">
@@ -21,6 +21,7 @@ function Login() {
               profferText="Ещё не зарегистрированы?"
               profferLink="signup"
               profferLinkLabel="Регистрация"
+              handleLog={handleLogin}
             />
           </div>
         </section>

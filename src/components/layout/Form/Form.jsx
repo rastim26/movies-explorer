@@ -3,13 +3,13 @@ import React from "react";
 import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from '../../useForm';
 
-function Form({hasName, submitText, profferText, profferLink, profferLinkLabel}) {
+function Form({hasName, submitText, profferText, profferLink, profferLinkLabel, handleLog}) {
 
   const { values, handleChange, errors, isValid, resetForm } = useForm();
 
   const onSubmit = (event) => {
     event.preventDefault();
-    // handleLogin(values);
+    handleLog(values);
     resetForm();
   }
 

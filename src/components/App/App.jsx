@@ -25,7 +25,7 @@ function App() {
   const [isPreloaderOpen, setPreloaderOpen] = React.useState(false);
   const [viewportWidth, setViewportWidth] = React.useState();
   const [message, setMessage] = React.useState('');
-
+  const navigate = useNavigate();
   
   React.useEffect(() => {
     const width = findWidth();
@@ -127,6 +127,25 @@ function App() {
     api.createMovie(card);
   }
 
+  function handleLogin({email, password}) {
+    return api.authorize(email, password)
+    .then(token => {
+      if (token) {
+        setLoggedIn(true);
+        navigate('/movies', {replace: true})
+      }
+    })
+    .catch(err => console.log(err));
+  }
+
+  function handleRegister({name, email, password}) {
+    return api.register(name, email, password)
+    .then(() => {
+      navigate('/movies', {replace: true})
+    })
+    .catch(err => console.log(err));
+  }
+
   return (
     <CurrentUserContext.Provider value={currentUser} >
       <div className="app">
@@ -161,8 +180,8 @@ function App() {
           />} />
 
           <Route path="/main" element={<Main loggedIn={loggedIn} />} />
-          <Route path="/signin" element={<Login />} />
-          <Route path="/signup" element={<Register />} />
+          <Route path="/signin" element={<Login handleLogin={handleLogin} />} />
+          <Route path="/signup" element={<Register handleRegister={handleRegister} />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
       </div>
