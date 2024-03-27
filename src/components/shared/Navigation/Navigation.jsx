@@ -1,11 +1,15 @@
 import './Navigation.css';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 function Navigation({isLight, activeLink}) {
+
+  const [isActive, toggleActive] = React.useState(false);
+
   return (
     <>
-      <nav className={`header__menu menu .menu_open ${!isLight && 'menu_bg-dark'}`}>
-        <button className="menu__close"></button>
+      <nav className={`header__menu menu ${isActive && 'menu_open'} ${!isLight && 'menu_bg-dark'}`}>
+        <button className="menu__close" onClick={() => toggleActive(false)}></button>
         <ul className="menu__list">
           <li className="menu__item menu__item_tab">
             <Link to="/" className={`menu__link ${!isLight && 'menu__link_bg-dark'} ${activeLink === 'main' && 'menu__link_active'}`}>Главная</Link>
@@ -21,7 +25,7 @@ function Navigation({isLight, activeLink}) {
           </li>
         </ul>
       </nav>
-      <button type="button" className="burger .burger_open"></button>
+      <button type="button" className="burger" onClick={() => toggleActive(true)}></button>
     </>
   );
 }
