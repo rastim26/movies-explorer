@@ -19,7 +19,6 @@ export function useForm() {
         setIsValid(false);
         setErrors({...errors, [name]: "Имя может содержать только буквы, цифры, дефис и пробел!" });
       }
-      console.log(value, validRex.test(value), isValid);
     }
     
 
@@ -33,9 +32,6 @@ export function useForm() {
     },
     [setValues, setErrors, setIsValid]
   );
-
-  console.log(values);
-  console.log(errors);
 
   return { values, handleChange, errors, isValid, resetForm };
 }

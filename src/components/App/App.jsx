@@ -25,16 +25,30 @@ function App() {
   const [isPreloaderOpen, setPreloaderOpen] = React.useState(false);
   const [viewportWidth, setViewportWidth] = React.useState();
   const [message, setMessage] = React.useState('');
+  const [serverErrMsg, setServerErrMsg] = React.useState('');
   const navigate = useNavigate();
   
   React.useEffect(() => {
     const width = findWidth();
     renderCards(width);
-
     window.addEventListener('resize', handleResize);
+    tokenCheck();
     return () => window.removeEventListener('resize', handleResize);
   }, []);
   
+  // React.useEffect(() => {
+  //   if (loggedIn) {
+  //     api.getUserInfo()
+  //     .then((user) => {
+  //       setCurrentUser(user);
+  //     })
+  //     .catch(err => {
+  //       console.log(err);
+  //     });
+  //   }
+  // }, [loggedIn]);
+
+
   function findWidth() {
     const width = window.innerWidth;
     setViewportWidth(width);
@@ -129,22 +143,48 @@ function App() {
 
   function handleLogin({email, password}) {
     return api.authorize(email, password)
-    .then(token => {
-      if (token) {
+    .then(({user, token}) => {
+      if (token){
+        localStorage.setItem('jwt', token);
         setLoggedIn(true);
+        setCurrentUser(user);
         navigate('/movies', {replace: true})
       }
     })
-    .catch(err => console.log(err));
+    .catch(err => {
+      console.log(err);
+      setServerErrMsg(err);
+    });
   }
 
   function handleRegister({name, email, password}) {
     return api.register(name, email, password)
     .then(() => {
-      navigate('/movies', {replace: true})
+      setLoggedIn(true);
+      navigate('/movies', {replace: true});
     })
-    .catch(err => console.log(err));
+    .catch(err => {
+      console.log(err);
+      setServerErrMsg(err);
+    });
   }
+
+  const tokenCheck = () => {
+    // если у пользователя есть токен в localStorage, 
+    // эта функция проверит, действующий он или нет
+    const token = localStorage.getItem('jwt');
+
+    if (token){ 
+      api.getUserInfo() // проверим токен
+      .then((user) => {
+        if (user){
+          setLoggedIn(true);  // авторизуем пользователя
+          setCurrentUser(user);
+        }
+      })
+      .catch(err => console.log(err))
+    }
+  } 
 
   return (
     <CurrentUserContext.Provider value={currentUser} >
@@ -180,8 +220,8 @@ function App() {
           />} />
 
           <Route path="/main" element={<Main loggedIn={loggedIn} />} />
-          <Route path="/signin" element={<Login handleLogin={handleLogin} />} />
-          <Route path="/signup" element={<Register handleRegister={handleRegister} />} />
+          <Route path="/signin" element={<Login handleLogin={handleLogin} serverErrMsg={serverErrMsg} />} />
+          <Route path="/signup" element={<Register handleRegister={handleRegister} serverErrMsg={serverErrMsg} />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
       </div>

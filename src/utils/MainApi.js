@@ -7,11 +7,22 @@ class MainApi {
     return res.ok ? res.json() : Promise.reject(`Ошибка api: ${res.status}`);
   }
 
+  getUserInfo = () => {
+    return fetch(`${this._baseUrl}/users/me`, {
+      method: 'GET',
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("jwt")}`,
+        'Content-Type': 'application/json'
+      }
+    })
+    .then(this._checkResponse)
+  }
+
   getSavedMovies = () => {
     return fetch(`${this._baseUrl}/movies`, {
       method: 'GET',
       headers: {
-        // authorization: `Bearer ${localStorage.getItem("jwt")}`,
+        authorization: `Bearer ${localStorage.getItem("jwt")}`,
         'Content-Type': 'application/json'
       },
     })
@@ -64,12 +75,6 @@ class MainApi {
       body: JSON.stringify({email, password})
     })
     .then(this._checkResponse)
-    .then(({token}) => {
-      if (token){
-        localStorage.setItem('jwt', token);
-        return token;
-      }
-    })
   }; 
 
 }

@@ -3,7 +3,7 @@ import React from "react";
 import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from '../../useForm';
 
-function Form({hasName, submitText, profferText, profferLink, profferLinkLabel, handleLog}) {
+function Form({hasName, submitText, profferText, profferLink, profferLinkLabel, handleLog, serverErrMsg}) {
 
   const { values, handleChange, errors, isValid, resetForm } = useForm();
 
@@ -54,7 +54,7 @@ function Form({hasName, submitText, profferText, profferLink, profferLinkLabel, 
       />
       <span className="form__err-text">{errors.password}</span>
       
-      <span className="form__err-text">Что-то пошло не так...</span>
+      {serverErrMsg && <span className="form__err-text">{serverErrMsg}</span>}
       <button type="submit" className={`form__submit ${!isValid && 'form__submit_disabled'}`} disabled={!isValid} >{submitText}</button>
       <p className="form__proffer">
         {profferText} <Link to={'/' + profferLink} className="bottom-link">{profferLinkLabel}</Link>

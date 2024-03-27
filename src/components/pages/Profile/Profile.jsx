@@ -1,8 +1,22 @@
 import './Profile.css';
 import Header from '../../layout/Header/Header';
 import { Link } from 'react-router-dom';
+import { CurrentUserContext } from "../../../contexts/CurrentUserContext";
+import React from "react";
 
-function Profile() {
+function Profile({loggedIn}) {
+
+  const currentUser = React.useContext(CurrentUserContext);
+  const [values, setValues] = React.useState({});
+  
+  React.useEffect(() => {
+    setValues({
+      name: currentUser.name,
+      email: currentUser.email,
+    })
+  }, [currentUser, loggedIn]);
+
+
   return (
     <div className="profile-page">
       <Header />
