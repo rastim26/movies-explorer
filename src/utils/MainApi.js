@@ -18,6 +18,18 @@ class MainApi {
     .then(this._checkResponse)
   }
 
+  patchUserInfo = ({ name, email }) => {
+    return fetch(`${this._baseUrl}/users/me`, {
+      method: 'PATCH',
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("jwt")}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ name, email }),
+    })
+      .then(this._checkResponse)
+  }
+
   getSavedMovies = () => {
     return fetch(`${this._baseUrl}/movies`, {
       method: 'GET',

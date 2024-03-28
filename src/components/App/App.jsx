@@ -169,6 +169,17 @@ function App() {
     });
   }
 
+  function updateUser({name, email}) {
+    return api.patchUserInfo({name, email})
+    .then(() => {
+      console.log("Данные пользователя обновлены!")
+    })
+    .catch(err => {
+      console.log(err);
+      setServerErrMsg(err);
+    });
+  }
+
   const tokenCheck = () => {
     // если у пользователя есть токен в localStorage, 
     // эта функция проверит, действующий он или нет
@@ -217,6 +228,7 @@ function App() {
           <Route path="/profile" element={<ProtectedRouteElement
               element={Profile}
               loggedIn={loggedIn}
+              updateUser={updateUser}
           />} />
 
           <Route path="/main" element={<Main loggedIn={loggedIn} />} />
