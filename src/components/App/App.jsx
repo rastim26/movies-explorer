@@ -246,7 +246,7 @@ function App() {
               loadMore={loadMore}
               isPreloaderOpen={isPreloaderOpen}
               message={message}
-              onSaveClick={handleSaveClick}
+              handleSaveClick={handleSaveClick}
           />} />
 
           <Route path="/saved-movies" element={<ProtectedRouteElement
@@ -258,7 +258,7 @@ function App() {
               loadMore={loadMore}
               isPreloaderOpen={isPreloaderOpen}
               message={message}
-              onSaveClick={handleSaveClick}
+              handleSaveClick={handleSaveClick}
           />} />
 
           <Route path="/profile" element={<ProtectedRouteElement

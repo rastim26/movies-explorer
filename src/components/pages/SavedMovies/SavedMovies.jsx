@@ -7,7 +7,7 @@ import MoviesCardList from '../../layout/MoviesCardList/MoviesCardList';
 import AddMore from '../../layout/AddMore/AddMore';
 import Preloader from '../../shared/Preloader/Preloader';
 
-function SavedMovies({cards, savedCards, loadCards, isPreloaderOpen, message, onSaveClick}) {
+function SavedMovies({cards, savedCards, loadCards, isPreloaderOpen, message, handleSaveClick}) {
 
   React.useEffect(() => {
     loadCards();
@@ -19,7 +19,7 @@ function SavedMovies({cards, savedCards, loadCards, isPreloaderOpen, message, on
       <main className="content">
         <SearchForm />
         {cards.length
-        ? <MoviesCardList cards={cards} savedCards={savedCards} onSaveClick={onSaveClick} />
+        ? <MoviesCardList cards={cards} savedCards={savedCards} handleSaveClick={handleSaveClick} />
         : <p className="message-text">{message}</p> }
       </main>
       <Footer />
