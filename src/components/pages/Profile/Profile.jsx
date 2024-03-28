@@ -5,17 +5,12 @@ import { Link } from 'react-router-dom';
 import { CurrentUserContext } from "../../../contexts/CurrentUserContext";
 import { useForm } from '../../useForm';
 
-function Profile({loggedIn, updateUser}) {
+function Profile({loggedIn, setLoggedIn, updateUser}) {
 
   const currentUser = React.useContext(CurrentUserContext);
   const [isDisabled, setDisabled] = React.useState(true);
   const { values, handleChange, errors, isValid, resetForm } = useForm();
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    updateUser(values);
-    setDisabled(true);
-  }
-
+  
   React.useEffect(() => {
     isValid && setDisabled(false);
   }, [values])
@@ -26,6 +21,17 @@ function Profile({loggedIn, updateUser}) {
       email: currentUser.email,
     })
   }, [currentUser, loggedIn]);
+  
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    updateUser(values);
+    setDisabled(true);
+  }
+
+  const signout = () => {
+    localStorage.clear();
+    setLoggedIn(false);
+  }
 
   return (
     <div className="profile-page">
@@ -64,7 +70,7 @@ function Profile({loggedIn, updateUser}) {
 
             <div className="profile__form-control">
               <button type="submit" className="profile__form-btn"  disabled={isDisabled}>Редактировать</button>
-              <Link to="/"  className="profile__form-btn profile__form-btn_danger" onClick={() => localStorage.clear()}>Выйти из аккаунта</Link>
+              <Link to="/"  className="profile__form-btn profile__form-btn_danger" onClick={signout}>Выйти из аккаунта</Link>
             </div>
           </form>
         </section>

@@ -228,6 +228,7 @@ function App() {
           <Route path="/profile" element={<ProtectedRouteElement
               element={Profile}
               loggedIn={loggedIn}
+              setLoggedIn={setLoggedIn}
               updateUser={updateUser}
           />} />
 
