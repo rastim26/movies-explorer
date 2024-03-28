@@ -61,9 +61,10 @@ function App() {
 
   function loadCards({queryText, isShort}) {
     setPreloaderOpen(true);
-    moviesApi.getCards()
-    .then((cards) => {
-      if (cards.length) {
+    moviesApi.getMovies()
+    .then((movies) => {
+      if (movies.length) {
+        const cards = transformToCards(movies)
         localStorage.setItem("foundItems", JSON.stringify(cards));
         localStorage.setItem("queryText", queryText);
         localStorage.setItem("isShort", JSON.stringify(isShort));
@@ -102,6 +103,8 @@ function App() {
   function renderCards(viewportWidth) {
     const cards = JSON.parse(localStorage.getItem("foundItems"));
     if (!cards) {setMessage('Ничего не найдено'); return}
+    loadSavedCards();
+
     let cardList;
     switch (true) {
       case viewportWidth > 870:
@@ -135,10 +138,41 @@ function App() {
     setRenderedCards(cardListSum);
   }
 
+  function transformToCards(movies){
+    const cards = movies.map(card => {
+      const {
+        country,
+        description,
+        director,
+        duration,
+        id,
+        image,
+        nameEN,
+        nameRU,
+        trailerLink,
+        year
+      } = card;
+      return {
+        country,
+        director,
+        duration,
+        year,
+        description,
+        image: 'https://api.nomoreparties.co' + image.url,
+        trailerLink,
+        thumbnail: 'https://api.nomoreparties.co' + image.formats.thumbnail.url,
+        owner: currentUser._id,
+        movieId: id,
+        nameEN,
+        nameRU,
+      };
+    });
+    return cards;
+  }
+
   function handleSaveClick(card) {
-    // const isSaved = savedCards.some(i => i.id === card.id);
-    // (!isSaved ? api.createMovie(card) : api.deleteMovie(card))
-    api.createMovie(card);
+    const isSaved = savedCards.some(c => c.movieId === card.movieId);
+    !isSaved ? api.createMovie(card) : api.deleteMovie(card);
   }
 
   function handleLogin({email, password}) {
@@ -206,6 +240,7 @@ function App() {
           <Route path="/movies" element={<ProtectedRouteElement
               element={Movies}
               cards={renderedCards}
+              savedCards={savedCards}
               loggedIn={loggedIn}
               loadCards={loadCards}
               loadMore={loadMore}
@@ -217,6 +252,7 @@ function App() {
           <Route path="/saved-movies" element={<ProtectedRouteElement
               element={SavedMovies}
               cards={savedCards}
+              savedCards={savedCards}
               loggedIn={loggedIn}
               loadCards={loadSavedCards}
               loadMore={loadMore}

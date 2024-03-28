@@ -1,4 +1,5 @@
 // import './SavedMovies.css';
+import React from "react";
 import Header from '../../layout/Header/Header';
 import Footer from '../../layout/Footer/Footer';
 import SearchForm from '../../layout/SearchForm/SearchForm';
@@ -6,14 +7,19 @@ import MoviesCardList from '../../layout/MoviesCardList/MoviesCardList';
 import AddMore from '../../layout/AddMore/AddMore';
 import Preloader from '../../shared/Preloader/Preloader';
 
-function SavedMovies({cards, loadCards, isPreloaderOpen, message}) {
+function SavedMovies({cards, savedCards, loadCards, isPreloaderOpen, message, onSaveClick}) {
+
+  React.useEffect(() => {
+    loadCards();
+  }, [savedCards.length])
+
   return (
     <div className="saved-movies-page">
       <Header activeLink='saved-movies' />
       <main className="content">
-        <SearchForm loadCards={loadCards} />
+        <SearchForm />
         {cards.length
-        ? <MoviesCardList cards={cards} />
+        ? <MoviesCardList cards={cards} savedCards={savedCards} onSaveClick={onSaveClick} />
         : <p className="message-text">{message}</p> }
       </main>
       <Footer />

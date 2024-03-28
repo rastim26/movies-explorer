@@ -45,7 +45,7 @@ class MainApi {
     return fetch(`${this._baseUrl}/movies`, {
       method: 'POST',
       headers: {
-        // authorization: `Bearer ${localStorage.getItem("jwt")}`,
+        authorization: `Bearer ${localStorage.getItem("jwt")}`,
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(movie),
@@ -54,10 +54,10 @@ class MainApi {
   }
 
   deleteMovie = (movie) => {
-    return fetch(`${this._baseUrl}/movies/${movie.id}`, {
+    return fetch(`${this._baseUrl}/movies/${movie.movieId}`, {
       method: 'DELETE',
       headers: {
-        // authorization: `Bearer ${localStorage.getItem("jwt")}`,
+        authorization: `Bearer ${localStorage.getItem("jwt")}`,
         'Content-Type': 'application/json'
       }
     })

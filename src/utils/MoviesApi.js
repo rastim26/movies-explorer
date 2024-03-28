@@ -7,7 +7,7 @@ class MoviesApi {
     return res.ok ? res.json() : Promise.reject(`Ошибка api: ${res.status}`);
   }
 
-  getCards = () => {
+  getMovies = () => {
     return fetch(`${this._baseUrl}/beatfilm-movies`, {
       method: 'GET',
       headers: {

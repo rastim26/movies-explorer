@@ -3,17 +3,28 @@ import { Link } from 'react-router-dom';
 import React from "react";
 import { CurrentUserContext } from "../../../contexts/CurrentUserContext";
 
-function MoviesCard({card, onSaveClick}) {
-  
-  const [isSaved, setSaved] = React.useState(false);
+function MoviesCard({card, savedCards, onSaveClick}) {
   
   const currentUser = React.useContext(CurrentUserContext);
-  // const isSaved = card.likes.some(i => i === currentUser._id); // Определяем, есть ли у карточки лайк, поставленный текущим пользователем
+  const [isSaved, setSaved] = React.useState(false);
+  
+  React.useEffect(() => {
+    setSaved(savedCards.some(c => c.movieId === card.movieId));
+  }, [savedCards.length])
 
   const {
-    country, created_at, description, director, duration,
-    id, image, nameEN, nameRU,
-    trailerLink, updates_at, year,
+    country,
+    director,
+    duration,
+    year,
+    description,
+    image,
+    trailerLink,
+    thumbnail,
+    owner,
+    movieId,
+    nameEN,
+    nameRU,
   } = card;
 
   const handleSaveClick = () => {
@@ -34,7 +45,7 @@ function MoviesCard({card, onSaveClick}) {
         <button onClick={handleSaveClick} type="button" className={`cards__save ${isSaved && 'cards__save_active'}`}></button>
       </div>
       <Link to={trailerLink} className="cards__preview-link">
-        <img src={'https://api.nomoreparties.co/' + image.url} alt="Превью" className="cards__preview" />
+        <img src={thumbnail} alt={nameRU} className="cards__preview" />
       </Link>
     </li>
   );
