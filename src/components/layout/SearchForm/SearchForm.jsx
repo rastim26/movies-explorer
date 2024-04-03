@@ -1,31 +1,37 @@
 import './SearchForm.css';
 import React from "react";
 
-function SearchForm({loadCards}) {
+function SearchForm({loadCards, applyfilter}) {
 
   const [searchInputValue, setSearchInputValue] = React.useState('');
-  const [checkboxValue, setCheckboxValue] = React.useState(false);
+  const [isShortOnly, setShortOnly] = React.useState(false);
 
   React.useEffect(() => {
     const queryText = localStorage.getItem('queryText');
-    const isShort = localStorage.getItem('isShort');
     queryText && setSearchInputValue(queryText);
-    isShort && setCheckboxValue(JSON.parse(isShort));
-  }, [])
+
+    const isShort = JSON.parse(localStorage.getItem('isShort'));
+    isShort && setShortOnly(isShort);
+  }, []);
+
+  React.useEffect(() => {
+    localStorage.setItem('isShort', isShortOnly);
+    applyfilter();
+  }, [isShortOnly]);
 
   function handleSearchInputChange(e) {
     setSearchInputValue(e.target.value);
   }
 
   function handleChangeCheckbox(e) {
-    setCheckboxValue(e.target.checked);
+    setShortOnly(e.target.checked);
   }
 
   function hadleSubmit(e) {
     e.preventDefault();
     loadCards({    // Передаём значения управляемых компонентов во внешний обработчик
       queryText: searchInputValue,
-      isShort: checkboxValue,
+      isShort: isShortOnly,
     });
   }
 
@@ -38,7 +44,7 @@ function SearchForm({loadCards}) {
           <button type="submit" className="search__submit"></button>
         </div>
         <div className="search__control">
-          <input checked={checkboxValue} onChange={handleChangeCheckbox} type="checkbox" name="isShortCheckbox" id="is-short-films" className="search__checkbox" />
+          <input checked={isShortOnly} onChange={handleChangeCheckbox} type="checkbox" name="isShortCheckbox" id="is-short-films" className="search__checkbox" />
           <label htmlFor="is-short-films" className="search__checkbox-label">Короткометражки</label>
         </div>
       </form>

@@ -6,12 +6,12 @@ import MoviesCardList from '../../layout/MoviesCardList/MoviesCardList';
 import AddMore from '../../layout/AddMore/AddMore';
 import Preloader from '../../shared/Preloader/Preloader';
 
-function Movies({cards, savedCards, loadCards, loadMore, isPreloaderOpen, message, handleSaveClick}) {
+function Movies({cards, savedCards, loadCards, applyfilter, loadMore, isPreloaderOpen, message, handleSaveClick}) {
   return (
     <div className="movies-page">
       <Header activeLink='movies' />
       <main className="content">
-        <SearchForm loadCards={loadCards} />
+        <SearchForm loadCards={loadCards} applyfilter={applyfilter} />
         {cards.length
         ? <>
             <MoviesCardList cards={cards} savedCards={savedCards} handleSaveClick={handleSaveClick} />

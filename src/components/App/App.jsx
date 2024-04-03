@@ -15,7 +15,6 @@ import PageNotFound from '../pages/404/404';
 import ProtectedRouteElement from '../ProtectedRoute';
 
 
-
 function App() {
   const [loggedIn, setLoggedIn] = React.useState(false);
   const [currentUser, setCurrentUser] = React.useState({});
@@ -29,15 +28,15 @@ function App() {
   const navigate = useNavigate();
   
   React.useEffect(() => {
+    findWidth();
     tokenCheck();
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
   
   React.useEffect(() => {
-    const width = findWidth();
-    renderCards(width);
-
+    // const width = findWidth();
+    renderCards();
   }, [savedCards.length]);
 
   function findWidth() {
@@ -63,7 +62,7 @@ function App() {
         setMessage('Ничего не найдено');
       }
     })
-    .then(() => renderCards(viewportWidth))
+    .then(() => renderCards())
     .catch(err => {
       console.log(err);
       setMessage("Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз.");
@@ -91,27 +90,39 @@ function App() {
     });
   }
 
-  function renderCards(viewportWidth) {
+  function renderCards() {
     const cards = JSON.parse(localStorage.getItem("foundItems"));
-    if (!cards) {setMessage('Ничего не найдено'); return}
-    
+    const filteredCards = filterMovies(cards);
+    if (!filteredCards) {setMessage('Ничего не найдено'); return}
+
     let cardList;
     switch (true) {
       case viewportWidth > 870:
-        cardList = cards.splice(0, 12);
+        cardList = filteredCards.splice(0, 12);
         break;
       case viewportWidth > 580 && viewportWidth <= 870:
-        cardList = cards.splice(0, 8);
+        cardList = filteredCards.splice(0, 8);
         break;
         default: 
-        cardList = cards.splice(0, 5);
+        cardList = filteredCards.splice(0, 5);
       }
       
     loadSavedCards()
     .then(() => {
       setRenderedCards(cardList);
-      setRestCards(cards);
+      setRestCards(filteredCards);
     })
+  }
+
+  function applyfilter() {
+    renderCards();
+  }
+
+  function filterMovies(cards) {
+    const isShort = JSON.parse(localStorage.getItem('isShort'));
+    let resCards = cards;
+    if (isShort) resCards = cards.filter(card => card.duration < 40);
+    return resCards;
   }
 
   function loadMore() {
@@ -248,6 +259,7 @@ function App() {
               savedCards={savedCards}
               loggedIn={loggedIn}
               loadCards={loadCards}
+              applyfilter={applyfilter}
               loadMore={loadMore}
               isPreloaderOpen={isPreloaderOpen}
               message={message}
@@ -260,6 +272,7 @@ function App() {
               savedCards={savedCards}
               loggedIn={loggedIn}
               loadSavedCards={loadSavedCards}
+              applyfilter={applyfilter}
               loadMore={loadMore}
               isPreloaderOpen={isPreloaderOpen}
               message={message}
