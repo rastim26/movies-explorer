@@ -29,25 +29,16 @@ function App() {
   const navigate = useNavigate();
   
   React.useEffect(() => {
-    const width = findWidth();
-    renderCards(width);
-    window.addEventListener('resize', handleResize);
     tokenCheck();
+    window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
   
-  // React.useEffect(() => {
-  //   if (loggedIn) {
-  //     api.getUserInfo()
-  //     .then((user) => {
-  //       setCurrentUser(user);
-  //     })
-  //     .catch(err => {
-  //       console.log(err);
-  //     });
-  //   }
-  // }, [loggedIn]);
+  React.useEffect(() => {
+    const width = findWidth();
+    renderCards(width);
 
+  }, [savedCards.length]);
 
   function findWidth() {
     const width = window.innerWidth;
@@ -83,7 +74,7 @@ function App() {
   }
 
   function loadSavedCards() {
-    api.getSavedMovies()
+    return api.getSavedMovies()
     .then((cards) => {
       if (cards.length) {
         setSavedCards(cards);
@@ -103,8 +94,7 @@ function App() {
   function renderCards(viewportWidth) {
     const cards = JSON.parse(localStorage.getItem("foundItems"));
     if (!cards) {setMessage('Ничего не найдено'); return}
-    loadSavedCards();
-
+    
     let cardList;
     switch (true) {
       case viewportWidth > 870:
@@ -113,12 +103,15 @@ function App() {
       case viewportWidth > 580 && viewportWidth <= 870:
         cardList = cards.splice(0, 8);
         break;
-      default: 
+        default: 
         cardList = cards.splice(0, 5);
       }
-
-    setRenderedCards(cardList);
-    setRestCards(cards);
+      
+    loadSavedCards()
+    .then(() => {
+      setRenderedCards(cardList);
+      setRestCards(cards);
+    })
   }
 
   function loadMore() {
@@ -172,7 +165,19 @@ function App() {
 
   function handleSaveClick(card) {
     const isSaved = savedCards.some(c => c.movieId === card.movieId);
-    !isSaved ? api.createMovie(card) : api.deleteMovie(card);
+    return (!isSaved
+      ? api.createMovie(card)
+        .then(() => {
+          setSavedCards(cards => [...cards, card]);
+        })
+        .catch(err => console.log(err))
+      : api.deleteMovie(card)
+        .then(() => {
+          setSavedCards(cards => cards.filter(c => c._id !== card._id ));
+          
+        })
+        .catch(err => console.log(err))
+    )
   }
 
   function handleLogin({email, password}) {
@@ -254,7 +259,7 @@ function App() {
               cards={savedCards}
               savedCards={savedCards}
               loggedIn={loggedIn}
-              loadCards={loadSavedCards}
+              loadSavedCards={loadSavedCards}
               loadMore={loadMore}
               isPreloaderOpen={isPreloaderOpen}
               message={message}

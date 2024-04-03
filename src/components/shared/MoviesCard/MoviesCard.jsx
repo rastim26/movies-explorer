@@ -27,8 +27,9 @@ function MoviesCard({card, savedCards, handleSaveClick}) {
   } = card;
 
   const onSaveClick = () => {
-    handleSaveClick(card);
-    setSaved(!isSaved);
+    handleSaveClick(card)
+      .then(() => {setSaved(!isSaved)})
+      .catch(err => console.log(err))
   }
 
   const durationHours = Math.floor(duration / 60);
