@@ -29,7 +29,7 @@ const login = (req, res, next) => {
         NODE_ENV === 'production' ? JWT_SECRET : defaultJwtSecret,
         { expiresIn: '7d' },
       );
-      res.status(200).send({ token });
+      res.status(200).send({ user, token });
     })
     .catch(next);
 };

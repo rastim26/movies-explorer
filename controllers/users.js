@@ -3,11 +3,9 @@ const NotFoundError = require('../errors/not-found-err');
 const AlreadyExistsError = require('../errors/already-exists-err');
 const ValidationError = require('../errors/validation-error');
 
-const getUserInfo = (req, res, next) => {
-  User.findById(req.user._id)
-    .then((user) => res.status(200).send(user))
-    .catch(next);
-};
+const getUserInfo = (req, res, next) => User.findById(req.user._id)
+  .then((user) => res.status(200).send(user))
+  .catch(next);
 
 const updateUserInfo = (req, res, next) => {
   const { name, email } = req.body;
