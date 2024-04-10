@@ -3,7 +3,7 @@ const bcrypt = require('bcryptjs');
 const User = require('../models/user');
 const AlreadyExistsError = require('../errors/already-exists-err');
 
-const { NODE_ENV, JWT_SECRET, defaultJwtSecret } = require('../utils');
+const { NODE_ENV, JWT_SECRET, defaultJwtSecret } = process.env;
 
 const createUser = (req, res, next) => {
   const { name, email, password } = req.body;

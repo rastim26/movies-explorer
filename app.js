@@ -10,7 +10,7 @@ const corsHandler = require('./middlewares/corseHandler');
 const routes = require('./routes');
 
 const app = express();
-const { PORT, DB_URL } = require('./utils');
+const { PORT, DB_URL } = process.env;
 
 mongoose.connect(DB_URL);
 app.use(bodyParser.urlencoded({ extended: true }));
