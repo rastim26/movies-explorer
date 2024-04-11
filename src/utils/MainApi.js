@@ -92,6 +92,6 @@ class MainApi {
 }
 
 export const api = new MainApi({
-  // baseUrl: 'https://api.rastim.nomoredomainsrocks.ru/',
-  baseUrl: 'http://localhost:3000',
+  baseUrl: 'https://api.rastim.nomoredomainsrocks.ru',
+  // baseUrl: 'http://localhost:3000',
 });

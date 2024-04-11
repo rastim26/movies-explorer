@@ -26,16 +26,16 @@ function App() {
   const [message, setMessage] = React.useState('');
   const [serverErrMsg, setServerErrMsg] = React.useState('');
   const navigate = useNavigate();
+  const foundCards = JSON.parse(localStorage.getItem('foundItems'));
   
   React.useEffect(() => {
-    findWidth();
     tokenCheck();
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
   
   React.useEffect(() => {
-    // const width = findWidth();
+    console.log('useEffect()');
     renderCards();
   }, [savedCards.length]);
 
@@ -58,11 +58,11 @@ function App() {
         localStorage.setItem("foundItems", JSON.stringify(cards));
         localStorage.setItem("queryText", queryText);
         localStorage.setItem("isShort", JSON.stringify(isShort));
+        renderCards();
       } else {
         setMessage('Ничего не найдено');
       }
     })
-    .then(() => renderCards())
     .catch(err => {
       console.log(err);
       setMessage("Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз.");
@@ -90,32 +90,33 @@ function App() {
     });
   }
 
-  function renderCards() {
-    const cards = JSON.parse(localStorage.getItem("foundItems"));
-    const filteredCards = filterMovies(cards);
-    if (!filteredCards) {setMessage('Ничего не найдено'); return}
-
-    let cardList;
+  function sliceCards(cards) {
+    if (!cards) {setMessage('Ничего не найдено'); return}
+    const viewportWidth = findWidth();
+    let renderedCards;
     switch (true) {
       case viewportWidth > 870:
-        cardList = filteredCards.splice(0, 12);
+        renderedCards = cards.splice(0, 12);
         break;
       case viewportWidth > 580 && viewportWidth <= 870:
-        cardList = filteredCards.splice(0, 8);
+        renderedCards = cards.splice(0, 8);
         break;
         default: 
-        cardList = filteredCards.splice(0, 5);
+        renderedCards = cards.splice(0, 5);
       }
       
+    setRenderedCards(renderedCards);
+    setRestCards(cards);
+  }
+    
+  function renderCards() {
+    const inCards = foundCards;
+    const filteredCards = filterMovies(inCards);
+    
     loadSavedCards()
     .then(() => {
-      setRenderedCards(cardList);
-      setRestCards(filteredCards);
+      sliceCards(filteredCards);
     })
-  }
-
-  function applyfilter() {
-    renderCards();
   }
 
   function filterMovies(cards) {
@@ -176,16 +177,15 @@ function App() {
 
   function handleSaveClick(card) {
     const isSaved = savedCards.some(c => c.movieId === card.movieId);
-    return (!isSaved
-      ? api.createMovie(card)
+    return (isSaved
+      ? api.deleteMovie(card)
         .then(() => {
-          setSavedCards(cards => [...cards, card]);
+          setSavedCards(cards => cards.filter(c => c.movieId !== card.movieId ));
         })
         .catch(err => console.log(err))
-      : api.deleteMovie(card)
+      : api.createMovie(card)
         .then(() => {
-          setSavedCards(cards => cards.filter(c => c._id !== card._id ));
-          
+          setSavedCards(cards => [...cards, card]);
         })
         .catch(err => console.log(err))
     )
@@ -259,7 +259,7 @@ function App() {
               savedCards={savedCards}
               loggedIn={loggedIn}
               loadCards={loadCards}
-              applyfilter={applyfilter}
+              renderCards={renderCards}
               loadMore={loadMore}
               isPreloaderOpen={isPreloaderOpen}
               message={message}
@@ -271,8 +271,7 @@ function App() {
               cards={savedCards}
               savedCards={savedCards}
               loggedIn={loggedIn}
-              loadSavedCards={loadSavedCards}
-              applyfilter={applyfilter}
+              renderCards={renderCards}
               loadMore={loadMore}
               isPreloaderOpen={isPreloaderOpen}
               message={message}

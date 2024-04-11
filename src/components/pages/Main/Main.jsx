@@ -8,8 +8,6 @@ import Portfolio from '../../layout/Portfolio/Portfolio';
 import Footer from "../../layout/Footer/Footer";
 
 function Main({loggedIn}) {
-  console.log('loggedIn: ', loggedIn);
-
   return (
     <div className="main-page">
       <Header isLight={false} loggedIn={loggedIn} activeLink="main" />

@@ -1,7 +1,7 @@
 import './SearchForm.css';
 import React from "react";
 
-function SearchForm({loadCards, applyfilter}) {
+function SearchForm({loadCards, renderCards}) {
 
   const [searchInputValue, setSearchInputValue] = React.useState('');
   const [isShortOnly, setShortOnly] = React.useState(false);
@@ -14,17 +14,16 @@ function SearchForm({loadCards, applyfilter}) {
     isShort && setShortOnly(isShort);
   }, []);
 
-  React.useEffect(() => {
-    localStorage.setItem('isShort', isShortOnly);
-    applyfilter();
-  }, [isShortOnly]);
 
   function handleSearchInputChange(e) {
     setSearchInputValue(e.target.value);
   }
 
   function handleChangeCheckbox(e) {
-    setShortOnly(e.target.checked);
+    const isChecked = e.target.checked;
+    localStorage.setItem('isShort', isChecked);
+    setShortOnly(isChecked);
+    renderCards();
   }
 
   function hadleSubmit(e) {
@@ -40,7 +39,8 @@ function SearchForm({loadCards, applyfilter}) {
       <form action="submit" className="search__form">
         <div className="search__finder">
           <label htmlFor="search-input" className="search__input-label"></label>
-          <input value={searchInputValue} onChange={handleSearchInputChange} type="text" placeholder="Фильм" name="searchInput" id="search-input" className="search__input" />
+          <input value={searchInputValue} onChange=
+          {handleSearchInputChange} type="text" placeholder="Фильм" name="searchInput" id="search-input" className="search__input" />
           <button type="submit" className="search__submit"></button>
         </div>
         <div className="search__control">
