@@ -1,0 +1,56 @@
+.sign {
+  padding: 56px 30px 30px;
+  height: 100vh;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sign__container {
+  max-width: 396px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  height: 557px;
+}
+
+.sign__site-logo {
+  width: 38px;
+  height: 38px;
+}
+
+.sign__page-title {
+  margin-top: 40px;
+  text-align: left;
+}
+
+.sign__form {
+  margin-top: 40px;
+}
+
+
+
+@media (max-width: 580px) {
+  .sign {
+    align-items: unset;
+  }
+
+  .sign__container {
+    height: unset;
+  }
+
+  .sign__site-logo {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .sign__page-title {
+    text-align: center;
+    margin-top: 50px;
+  }
+
+  .sign__form {
+    margin-top: 80px;
+  }
+}
