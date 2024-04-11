@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const validator = require('validator');
 const { ObjectId } = require('mongodb');
 const { urlPattern } = require('../middlewares/validation');
 

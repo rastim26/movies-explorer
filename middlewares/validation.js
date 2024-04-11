@@ -19,24 +19,24 @@ const validateSignupFields = celebrate({
 
 const validateMovieFields = celebrate({
   body: Joi.object().keys({
-    country: Joi.string().required().min(2).max(30),
-    director: Joi.string().required().min(2).max(30),
+    country: Joi.string().required(),
+    director: Joi.string().required(),
     duration: Joi.number().required(),
-    year: Joi.string().required().min(2).max(30),
-    description: Joi.string().required().min(2).max(30),
+    year: Joi.string().required(),
+    description: Joi.string().required(),
     image: Joi.string().required().pattern(urlPattern),
     trailerLink: Joi.string().required().pattern(urlPattern),
     thumbnail: Joi.string().required().pattern(urlPattern),
-    // owner: req.user._id,
+    owner: Joi.string().required(),
     movieId: Joi.number().required(),
-    nameRU: Joi.string().required().min(2).max(30),
-    nameEN: Joi.string().required().min(2).max(30),
+    nameRU: Joi.string().required(),
+    nameEN: Joi.string().required(),
   }),
 });
 
 const validateMoviedId = celebrate({
   params: Joi.object().keys({
-    movieId: Joi.string().length(24).hex().required(),
+    movieId: Joi.number().required(),
   }),
 });
 
@@ -49,7 +49,6 @@ const validateUserId = celebrate({
 const validateUserFields = celebrate({
   body: Joi.object().keys({
     email: Joi.string().required().email({ minDomainSegments: 2 }),
-    password: Joi.string().required(),
     name: Joi.string().min(2).max(30).required(),
   }),
 });
