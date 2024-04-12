@@ -11,7 +11,7 @@ Backend https://api.rastim.nomoredomainsrocks.ru/
 # Макет - light-5
 
 ## Pull Request
-[https://github.com/rastim26/movies-explorer-frontend/pull/2] (https://github.com/rastim26/movies-explorer-frontend/pull/2)
+Pull Request: https://github.com/rastim26/movies-explorer/pull/1
 
 ## The project Api
 https://api.rastim.nomoredomainsrocks.ru/
