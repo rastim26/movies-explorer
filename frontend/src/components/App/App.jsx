@@ -27,13 +27,13 @@ function App() {
   const [serverErrMsg, setServerErrMsg] = React.useState('');
   const navigate = useNavigate();
   const foundCards = JSON.parse(localStorage.getItem('foundItems'));
-  
+
   React.useEffect(() => {
     tokenCheck();
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
-  
+
   React.useEffect(() => {
     console.log('useEffect()');
     renderCards();
@@ -43,7 +43,7 @@ function App() {
     const width = window.innerWidth;
     setViewportWidth(width);
     return width;
-  }  
+  }
 
   function handleResize() {
     setTimeout(findWidth, 1000);
@@ -101,18 +101,18 @@ function App() {
       case viewportWidth > 580 && viewportWidth <= 870:
         renderedCards = cards.splice(0, 8);
         break;
-        default: 
+        default:
         renderedCards = cards.splice(0, 5);
       }
-      
+
     setRenderedCards(renderedCards);
     setRestCards(cards);
   }
-    
+
   function renderCards() {
     const inCards = foundCards;
     const filteredCards = filterMovies(inCards);
-    
+
     loadSavedCards()
     .then(() => {
       sliceCards(filteredCards);
@@ -135,7 +135,7 @@ function App() {
       case viewportWidth > 580 && viewportWidth <= 870:
         cardList = restCards.splice(0, 2);
           break;
-      default: 
+      default:
         cardList = restCards.splice(0, 2);
     }
 
@@ -210,8 +210,7 @@ function App() {
   function handleRegister({name, email, password}) {
     return api.register(name, email, password)
     .then(() => {
-      setLoggedIn(true);
-      navigate('/movies', {replace: true});
+      handleLogin({email, password});
     })
     .catch(err => {
       console.log(err);
@@ -231,11 +230,11 @@ function App() {
   }
 
   const tokenCheck = () => {
-    // если у пользователя есть токен в localStorage, 
+    // если у пользователя есть токен в localStorage,
     // эта функция проверит, действующий он или нет
     const token = localStorage.getItem('jwt');
 
-    if (token){ 
+    if (token){
       api.getUserInfo() // проверим токен
       .then((user) => {
         if (user){
@@ -245,7 +244,7 @@ function App() {
       })
       .catch(err => console.log(err))
     }
-  } 
+  }
 
   return (
     <CurrentUserContext.Provider value={currentUser} >
