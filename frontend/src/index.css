@@ -1,0 +1,9 @@
+@import url(./vendor/font.css);
+
+html {
+  scroll-behavior: smooth;
+}
+
+.body {
+  margin: 0;
+}

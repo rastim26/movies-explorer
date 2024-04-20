@@ -1,17 +1,11 @@
-# movies-explorer-api
+# Movies Explorer
+### Макет - light-5
 
-Адрес репозитория: https://github.com/rastim26/movies-explorer-api
+Repository Address: https://github.com/rastim26/movies-explorer
+Pull Request: https://github.com/rastim26/movies-explorer/pull/1
 
-## Ссылки на проект
+Server IP: 158.160.63.23
+Frontend: https://rastim.nomoredomainsrocks.ru/
+Backend: https://api.rastim.nomoredomainsrocks.ru/
 
-IP-адрес 130.193.49.198
 
-Backend https://api.rastim.nomoredomainsrocks.ru/
-
-# Макет - light-5
-
-## Pull Request
-[https://github.com/rastim26/movies-explorer-frontend/pull/2] (https://github.com/rastim26/movies-explorer-frontend/pull/2)
-
-## The project Api
-https://api.rastim.nomoredomainsrocks.ru/
