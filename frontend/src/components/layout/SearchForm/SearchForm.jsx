@@ -26,7 +26,7 @@ function SearchForm({loadCards, renderCards}) {
     renderCards();
   }
 
-  function hadleSubmit(e) {
+  function handleSubmit(e) {
     e.preventDefault();
     loadCards({    // Передаём значения управляемых компонентов во внешний обработчик
       queryText: searchInputValue,
@@ -35,7 +35,7 @@ function SearchForm({loadCards, renderCards}) {
   }
 
   return (
-    <section onSubmit={hadleSubmit} className="search">
+    <section onSubmit={handleSubmit} className="search">
       <form action="submit" className="search__form">
         <div className="search__finder">
           <label htmlFor="search-input" className="search__input-label"></label>

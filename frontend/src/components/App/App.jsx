@@ -18,15 +18,16 @@ import ProtectedRouteElement from '../ProtectedRoute';
 function App() {
   const [loggedIn, setLoggedIn] = React.useState(false);
   const [currentUser, setCurrentUser] = React.useState({});
+
   const [restCards, setRestCards] = React.useState([]);
   const [renderedCards, setRenderedCards] = React.useState([]);
   const [savedCards, setSavedCards] = React.useState([]);
+
   const [isPreloaderOpen, setPreloaderOpen] = React.useState(false);
   const [viewportWidth, setViewportWidth] = React.useState();
   const [message, setMessage] = React.useState('');
   const [serverErrMsg, setServerErrMsg] = React.useState('');
   const navigate = useNavigate();
-  const foundCards = JSON.parse(localStorage.getItem('foundItems'));
 
   React.useEffect(() => {
     tokenCheck();
@@ -110,8 +111,11 @@ function App() {
   }
 
   function renderCards() {
-    const inCards = foundCards;
-    const filteredCards = filterMovies(inCards);
+    const foundCards = JSON.parse(localStorage.getItem('foundItems'));
+    const isShort = JSON.parse(localStorage.getItem('isShort'));
+    const queryText = localStorage.getItem('queryText');
+
+    const filteredCards = filterMovies(foundCards, isShort, queryText);
 
     loadSavedCards()
     .then(() => {
@@ -119,11 +123,13 @@ function App() {
     })
   }
 
-  function filterMovies(cards) {
-    const isShort = JSON.parse(localStorage.getItem('isShort'));
-    let resCards = cards;
-    if (isShort) resCards = cards.filter(card => card.duration < 40);
-    return resCards;
+  function filterMovies(cards, isShort, queryText) {
+    const regex = new RegExp(queryText, "gi");
+    let filteredCards = cards;
+    if (isShort) filteredCards = cards.filter(card => card.duration <= 40);
+    if (queryText) filteredCards = filteredCards.filter(card => regex.test(card.nameEN) || regex.test(card.nameRU));
+
+    return filteredCards;
   }
 
   function loadMore() {

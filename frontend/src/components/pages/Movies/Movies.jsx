@@ -7,6 +7,14 @@ import AddMore from '../../layout/AddMore/AddMore';
 import Preloader from '../../shared/Preloader/Preloader';
 
 function Movies({cards, savedCards, loadCards, renderCards, loadMore, isPreloaderOpen, message, handleSaveClick}) {
+
+  // function onFilter() {
+  //   const foundCards = JSON.parse(localStorage.getItem('foundItems'));
+  //   const isShort = JSON.parse(localStorage.getItem('isShort'));
+  //   const queryText = localStorage.getItem('queryText');
+
+  //   filterMovies(foundCards, isShort, queryText);
+  // };
   return (
     <div className="movies-page">
       <Header activeLink='movies' />
